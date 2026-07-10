@@ -1,0 +1,17 @@
+student_name = "abel"
+age = 22
+course = "software engineering"
+completed_assignments = 8
+total_assignments = 10
+print (f"student : {student_name}")
+print (f"age : {age}")
+print (f"course : {course}")
+completed_percentage = (completed_assignments / total_assignments) * 100
+print (f"completion:{completed_percentage} %")
+  
+if("completed percentage>=70"):
+     print ("fcompletion more than 70/%: true")
+else:
+    print (f"completion more than 70/%: false")
+
+
