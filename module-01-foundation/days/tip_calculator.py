@@ -1,6 +1,6 @@
 # Step 1: Store a bill total (ETB) and number of people in variables
 # =====================================================================
-bill_total = 2500.00  # Total restaurant bill in Ethiopian Birr
+bill_total = 1000.00  # Total restaurant bill in Ethiopian Birr
 num_people = 5        # Number of friends sharing the bill
 friends = ["Almaz", "Dawit", "Tigist", "Bereket", "Getu"]
 # ==================================================================
