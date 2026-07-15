@@ -5,7 +5,6 @@ num_people = 5        # Number of friends sharing the bill
 friends = ["Almaz", "Dawit", "Tigist", "Bereket", "Getu"]
 # ==================================================================
 # Step 2: Write a function split_bill with a default tip_rate=0.10
-# =============================================================
 def split_bill(total, people, tip_rate=0.10):
     # Calculate total tip amount
     tip_amount = total * tip_rate
@@ -14,14 +13,10 @@ def split_bill(total, people, tip_rate=0.10):
     # Split equally among the number of people
     per_person_share = grand_total / people
     return per_person_share
-# =====================================================================
 # Step 3: Use it to compute the per-person amount, tip included
-# =====================================================================
 # This calls our function to find the exact share amount
 individual_share = split_bill(bill_total, num_people)
-# =====================================================================
 # Step 4: Loop over a list of names and print each person's share
-# =====================================================================
 print("--- TeleBirr Request Summary ---")
 print(f"Original Bill: {bill_total} ETB (10% Default Tip Included)")
 print("--------------------------------")
