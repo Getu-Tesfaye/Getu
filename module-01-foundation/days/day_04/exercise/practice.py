@@ -77,7 +77,7 @@ class Product:
         if value < 0:
             raise ValueError("Quantity cannot be negative!")
         self.__quantity = value
-        def restock(self, n):
+    def restock(self, n):
          self.quantity += n  # Triggers setter validation
 
     def sell(self, n):
@@ -105,7 +105,7 @@ prod2 = Product("Banana", 15, 30)
 prod3 = Product("Orange", 18, 40)
 
 # Modify only the first product (prod1)
-prod1.sell(10) # Apple quantity goes from 50 down to 40
+prod1.sell(10) #
 
 print(f"{prod1.name} quantity: {prod1.quantity}")  
 print(f"{prod2.name} quantity: {prod2.quantity}")  
