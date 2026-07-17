@@ -1,9 +1,9 @@
 class Account:
     def __init__(self, owner, account_number, balance):
-        # 1. You must save these variables to the class instance!
+        #  You must save these variables to the class instance!
         self.owner = owner
         self.account_number = account_number
-        self._balance = balance  # Creates your private balance variable
+        self._balance = balance  # Creates your protected balance variable
 
     def withdraw(self, amount):
         if amount <= 0:
@@ -56,7 +56,7 @@ class CurrentAccount(Account): #inherits account
     def withdrawn(self, amount):
         max_allowed = self.balance + self.overdraft_limit
         if amount < max_allowed:
-            self.balance -= amount
+            self._balance -= amount
             print(f"withdrawn {amount} new balance {self.balance}")
             return True
         else:
@@ -89,7 +89,7 @@ accounts_list = [acc1, acc2, acc3]
 
     # Loop through and print the statement for each one
 for account in accounts_list:
-      print(account.statement())  
+      print(account.statement() )
 
                   
 
