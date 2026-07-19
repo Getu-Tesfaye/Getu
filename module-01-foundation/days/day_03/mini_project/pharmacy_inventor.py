@@ -4,7 +4,7 @@ try:
     with open("stock.txt", "r") as f: # open to read
         for line in f:
             if line.strip():
-                item, qty = line.strip().split(",")
+                item, qty = line.strip().strip(",")
                 inventory[item] = int(qty)
 except FileNotFoundError:
     pass  # If file doesn't exist yet, start with empty inventory

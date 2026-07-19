@@ -13,14 +13,14 @@ book2 = Book("the bird", "J.J.kal", 150)
 book1.describe()
 book2.describe()
 
-#wuestion2
+#question2
 class product:
      def __init__(self, name, price, quantity):
         self.name = name
         self.price = price
         self.quantity = quantity
 
-     def restock(self,n): # adda n to the stock
+     def restock(self,n): # add n to the stock
          self.quantity  += n
          print(f"restock {n} units. new quantity: {self.quantity}")
      def sell(self,n):
@@ -61,6 +61,7 @@ mobile.sell(6)
 print(f"Quantity after selling 3: {mobile.quantity}")
 
 #question4
+print("---quetion4---")
 class Product:
     def __init__(self, name, price, quantity):
         self.name = name
