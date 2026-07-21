@@ -394,13 +394,13 @@ found = registry.find_by_number("1000654323456")
 print("Found Account 1000654323456:", found)
 
 print("\n--- Step 3: Recursive Transaction Total ---")
-# Add some transactions to Alice's account (103)
+# Add some transactions to surafel account (10008987876540)
 acc1.deposit(200)   # +200
 acc1.withdraw(50)   # -50
 acc1.deposit(100)   # +100
 
-print("Alice's Transactions:", acc1.transactions)
-print("Total Transaction Volume (Recursive):", registry.total_transactions("103"))
+print("surafel Transactions:", acc1.transactions)
+print("Total Transaction Volume (Recursive):", registry.total_transactions("10008987876540"))
 
     
     
