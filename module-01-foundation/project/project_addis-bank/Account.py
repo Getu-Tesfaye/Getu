@@ -232,10 +232,78 @@ class SavingAccount(Account):
     current.withdraw(200)    # Should fail (Balance is now -400)
     
 
+#day_07_project==========================================================================
+print("------day_07_project------")
+
+class AccountRegistry:
+    def __init__(self):
+        self.accounts = {}       # Dict for O(1) lookup: {account_number: account}
+        self.order = []          # List to track insertion order
+        self.history_stack = []  # Stack to track global transactions for undo
+
+    def add(self, acc):
+        self.accounts[acc.number] = acc
+        self.order.append(acc)
+
+    def find(self, number):
+        return self.accounts.get(number)
+
+    def list_all(self):
+        return self.order
+
+    def deposit(self, acc_num, amount):
+        acc = self.find(acc_num)
+        if acc:
+            acc.deposit(amount)
+            self.history_stack.append({"type": "deposit", "acc": acc, "amount": amount})
+
+    def withdraw(self, acc_num, amount):
+        acc = self.find(acc_num)
+        if acc:
+            acc.withdraw(amount)
+            self.history_stack.append({"type": "withdraw", "acc": acc, "amount": amount})
+
+    def undo_last(self):
+        if not self.history_stack:
+            print("No transactions to undo.")
+            return
+
+        tx = self.history_stack.pop()
+        if tx["type"] == "deposit":
+            tx["acc"].withdraw(tx["amount"])  # Reverse deposit
+            print(f"Undid deposit of ${tx['amount']}")
+        elif tx["type"] == "withdraw":
+            tx["acc"].deposit(tx["amount"])   # Reverse withdrawal
+            print(f"Undid withdrawal of ${tx['amount']}")
 
 
+# --- Testing & Calling Functions ---
+
+registry = AccountRegistry()
+
+# 1. Create dummy account structure
+class Account:
+    def __init__(self, number, name):
+        self.number = number
+        self.name = name
+        self.balance = 0
+
+    def deposit(self, amount): self.balance += amount
+    def withdraw(self, amount): self.balance -= amount
+    def __repr__(self): return f"Account({self.number}, {self.name}, Balance: ${self.balance})"
+
+# 2. Add accounts
+acc1 = Account("almaz", "Savings")
+registry.add(acc1)
+
+# 3. Perform actions and print results
+registry.deposit("almaz", 200)
+print("Before Undo:", registry.find("almaz"))
+
+# 4. Call undo function
+registry.undo_last()
+print("After Undo:", registry.find("almaz"))
     
-
 
 
 

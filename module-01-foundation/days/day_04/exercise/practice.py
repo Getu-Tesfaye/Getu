@@ -55,10 +55,10 @@ print(mobile.quantity)
 print(f"Starting quantity: {mobile.quantity}") 
 
 mobile.restock(20)
-print(f"Quantity after restocking 10: {mobile.quantity}")
+print(f"Quantity after restocking 20: {mobile.quantity}")
 
 mobile.sell(6)
-print(f"Quantity after selling 3: {mobile.quantity}")
+print(f"Quantity after selling 6: {mobile.quantity}")
 
 #question4
 print("---quetion4---")
