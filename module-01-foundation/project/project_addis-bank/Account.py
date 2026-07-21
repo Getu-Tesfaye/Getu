@@ -1,4 +1,6 @@
+
 # day04 project====================================================
+
 print("day_04_project===========")
 class Account:
     def __init__(self, owner, account_number, balance):
@@ -34,6 +36,8 @@ account1.withdraw(500)
 account1.deposit(1000)
 
 #day05 project==========================================================================
+
+
 print("day_05_project==============")
 class SavingAccount(Account):# inherits account
     def __init__(self, owner, account_number, balance , interest_rate=0.05):#initialize the parrent class
@@ -94,6 +98,8 @@ for account in accounts_list:
       print(account.statement() )
 
 #day_06_project=====================================================================
+
+
 print("day_06_project============")
 #Step 1: The Singleton (BankConfig)
 #We use Python's __new__ method to guarantee that only one instance of configuration parameters exists across the entire application.
@@ -200,7 +206,6 @@ class AccountFactory:
         else:
             raise ValueError(f"Unknown account type: {kind}")
         
-#========
         
     # 1. Setup shared observers
     sms_service = SMSAlert()
@@ -233,6 +238,8 @@ class SavingAccount(Account):
     
 
 #day_07_project==========================================================================
+
+
 print("------day_07_project------")
 
 class AccountRegistry:
@@ -306,6 +313,8 @@ print("After Undo:", registry.find("almaz"))
     
 
 #day_08_project===================================
+
+
 print("----------day_08_project----------")
 
 class Account:
@@ -402,8 +411,106 @@ acc1.deposit(100)   # +100
 print("surafel Transactions:", acc1.transactions)
 print("Total Transaction Volume (Recursive):", registry.total_transactions("10008987876540"))
 
-    
-    
+
+          #day_09_project=================================================
+
+
+print("-----------project_09----------")
+
+from collections import deque
+
+# ==========================================
+# 1. Branch Tree Class & Requirements
+# ==========================================
+class Branch:
+    def __init__(self, name):
+        self.name = name
+        self.children = []  # List of sub-branches
+        self.accounts = []  # List of account objects (or balances)
+
+    def add_child(self, branch):
+        self.children.append(branch)
+
+    def add_account(self, balance):
+        self.accounts.append(balance)
+
+    def total_balance(self):
+        # Base total from direct accounts in this branch
+        total = sum(self.accounts)
+        
+        # Recursively add total balances of sub-branches
+        for child in self.children:
+            total += child.total_balance()
+            
+        return total
+
+
+# ==========================================
+# 2. Transfers Graph BFS Function
+# ==========================================
+def bfs_reachable(transfers, start_account):
+    visited = set([start_account])
+    queue = deque([start_account])
+    reachable = []
+
+    while queue:
+        current = queue.popleft()
+        reachable.append(current)
+        for recipient in transfers.get(current, []):
+            if recipient not in visited:
+                visited.add(recipient)
+                queue.append(recipient)
+
+    return reachable
+
+
+# ==========================================
+# STEP-BY-STEP TESTING & CALLING FUNCTIONS
+# ==========================================
+
+# Step 1: Build a 3-level deep Branch Tree
+# Level 1: Head Office
+head_office = Branch("Head Office")
+
+# Level 2: Regions
+oromiya = Branch("oromiya")
+tigray = Branch("tigray")
+head_office.add_child(oromiya)
+head_office.add_child(tigray)
+
+# Level 3: Local Branches
+branch_main = Branch("Main St Branch")
+branch_downtown = Branch("Downtown Branch")
+oromiya.add_child(branch_main)
+tigray.add_child(branch_downtown)
+
+# Step 2: Add account balances at various levels
+head_office.add_account(1000000)  # Reserve funds
+oromiya.add_account(50000)
+branch_main.add_account(1200)
+branch_main.add_account(800)
+branch_downtown.add_account(3500)
+
+print("--- Step 1 & 2: Branch Tree Balances ---")
+print("Main St Branch Total:", branch_main.total_balance())
+print("oromiya Total:", oromiya.total_balance())
+print("Head Office (Grand Total):", head_office.total_balance())
+
+
+# Step 3: Build Transfers Graph (Account -> List of Recipients)
+transfers_graph = {
+    "Acc_01": ["Acc_02", "Acc_03"],
+    "Acc_02": ["Acc_04"],
+    "Acc_03": ["Acc_05"],
+    "Acc_04": [],
+    "Acc_05": ["Acc_01"]  # Cycle test
+}
+
+print("\n--- Step 3: Graph BFS Reachable Accounts ---")
+start_acc = "Acc_01"
+reachable_accs = bfs_reachable(transfers_graph, start_acc)
+print(f"Accounts reachable from {start_acc}:", reachable_accs)
+
         
 
 
