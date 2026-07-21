@@ -305,8 +305,102 @@ registry.undo_last()
 print("After Undo:", registry.find("almaz"))
     
 
+#day_08_project===================================
+print("----------day_08_project----------")
+
+class Account:
+    def __init__(self, number, name, balance=0):
+        self.number = str(number)
+        self.name = name
+        self.balance = balance
+        self.transactions = []  # List of numbers e.g. [100, -50, 20]
+
+    def deposit(self, amount):
+        self.balance += amount
+        self.transactions.append(amount)
+
+    def withdraw(self, amount):
+        self.balance -= amount
+        self.transactions.append(-amount)
+
+    def __repr__(self):
+        return f"Account({self.number}, {self.name}, Balance: ${self.balance})"
 
 
+class AccountRegistry:
+    def __init__(self):
+        self.accounts = {}
+
+    def add(self, acc):
+        self.accounts[acc.number] = acc
+
+    # 1. Leaderboard requirement
+    def top_by_balance(self, n):
+        all_accs = list(self.accounts.values())
+        return sorted(all_accs, key=lambda a: a.balance, reverse=True)[:n]
+
+    # 2. Binary search helper & requirement
+    def find_by_number(self, number):
+        target = str(number)
+        # Sort accounts by number for binary search
+        sorted_accs = sorted(self.accounts.values(), key=lambda a: a.number)
+        
+        low, high = 0, len(sorted_accs) - 1
+        while low <= high:
+            mid = (low + high) // 2
+            if sorted_accs[mid].number == target:
+                return sorted_accs[mid]
+            elif sorted_accs[mid].number < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return None
+
+    # 3. Recursive transaction sum requirement
+    def total_transactions(self, number):
+        acc = self.find_by_number(number)
+        if not acc:
+            return 0
+        
+        # Recursive inner helper
+        def _recurse_sum(txs):
+            if not txs:
+                return 0
+            return txs[0] + _recurse_sum(txs[1:])
+        
+        return _recurse_sum(acc.transactions)
+
+
+# ==========================================
+# STEP-BY-STEP TESTING & CALLING FUNCTIONS
+# ==========================================
+
+registry = AccountRegistry()
+
+# Step 1: Add Accounts
+acc1 = Account("1000546787656", "Almaz", 500)
+acc2 = Account("1000654323456", "tigist", 1200)
+acc3 = Account("10008987876540", "surafel", 300)
+
+registry.add(acc1)
+registry.add(acc2)
+registry.add(acc3)
+
+print("--- Step 1: Top Accounts by Balance ---")
+print("Top 2 Accounts:", registry.top_by_balance(2))
+
+print("\n--- Step 2: Binary Search Find by Number ---")
+found = registry.find_by_number("1000654323456")
+print("Found Account 1000654323456:", found)
+
+print("\n--- Step 3: Recursive Transaction Total ---")
+# Add some transactions to Alice's account (103)
+acc1.deposit(200)   # +200
+acc1.withdraw(50)   # -50
+acc1.deposit(100)   # +100
+
+print("Alice's Transactions:", acc1.transactions)
+print("Total Transaction Volume (Recursive):", registry.total_transactions("103"))
 
     
     
