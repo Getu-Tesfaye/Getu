@@ -7,25 +7,29 @@ class Account:
         #  You must save these variables to the class instance!
         self.owner = owner
         self.account_number = account_number
-        self._balance = balance  # Creates your protected balance variable
+        self.__balance = balance  # Creates your private balance variable
+    @property
+    def balance(self):
+        return self.__balance
+
 
     def withdraw(self, amount):
         if amount <= 0:
             print("Withdraw amount must be positive.")
-        elif amount > self._balance:
+        elif amount > self.__balance:
             print("Withdraw amount must be less than or equal to balance.")
         else:
-            self._balance -= amount
-            print(f"Withdraw of {amount} successful. New balance: {self._balance}")
+            self.__balance -= amount
+            print(f"Withdraw of {amount} successful. New balance: {self.__balance}")
 
     def deposit(self, amount):
         if amount > 0:
-            self._balance += amount
-            print(f"Deposit of {amount} successful. New balance: {self._balance}")
+            self.__balance += amount
+            print(f"Deposit of {amount} successful. New balance: {self.__balance}")
         else:
             print("Deposit amount must be positive.")
     def statement(self):
-        return f"Standard Account | No: {self.account_number} | Owner: {self.owner} | Balance: ${self._balance}"
+        return f"Standard Account | No: {self.account_number} | Owner: {self.owner} | Balance: ${self.balance}"
 
 
 # Creating the instance
@@ -46,12 +50,12 @@ class SavingAccount(Account):# inherits account
         self.interest_rate = interest_rate # ex 5% rate
     def add_interest(self): #withdrawn
        # Uses self.interest_rate to calculate the new interest
-        interest = self._balance * self.interest_rate
+        interest = self.balance * self.interest_rate
         print(f"interest for account {self.interest_rate}: {interest}")
         self.deposit(interest)
 
     def statement(self):
-         print(f"saving account: {self.account_number} owner: {self.owner} balance: {self._balance} interest_rate: {self.interest_rate * 100}%")
+         print(f"saving account: {self.account_number} owner: {self.owner} balance: {self.balance} interest_rate: {self.interest_rate * 100}%")
         
 class CurrentAccount(Account): #inherits account
     def __init__(self, owner, account_number, balance, overdraft_limit):
