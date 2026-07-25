@@ -1,5 +1,5 @@
-from Account import Account
-from Bank_config import Bankconfig
+from account import Account
+from bank_config import Bankconfig
 
 class SavingAccount(Account):
     def __init__(self, owner, account_number, balance = 0, interest_rate = 0.05):
