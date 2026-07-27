@@ -1,25 +1,37 @@
-# Step 1: Store a bill total (ETB) and number of people in variables
-# =====================================================================
-bill_total = 1000.00  # Total restaurant bill in Ethiopian Birr
-num_people = 5        # Number of friends sharing the bill
-friends = ["Almaz", "Dawit", "Tigist", "Bereket", "Getu"]
-# ==================================================================
-# Step 2: Write a function split_bill with a default tip_rate=0.10
-def split_bill(total, people, tip_rate=0.10):
-    # Calculate total tip amount
-    tip_amount = total * tip_rate
-    # Calculate grand total including tip
-    grand_total = total + tip_amount
-    # Split equally among the number of people
-    per_person_share = grand_total / people
-    return per_person_share
-# Step 3: Use it to compute the per-person amount, tip included
-# This calls our function to find the exact share amount
-individual_share = split_bill(bill_total, num_people)
-# Step 4: Loop over a list of names and print each person's share
-print("--- TeleBirr Request Summary ---")
-print(f"Original Bill: {bill_total} ETB (10% Default Tip Included)")
-print("--------------------------------")
-for friend in friends:
-    # Print the specific individual share for each friend
-    print(f"Sending TeleBirr request to {friend}: {individual_share:.2f} ETB")
+# 1. Function to check the tier based on balance
+def tier(balance):
+    if balance >= 1000:
+        return "Premium"
+    elif balance >= 500:
+        return "Standard"
+    else:
+        return "Basic"
+
+# 2. List of 5 customers: (name, balance)
+customers = [
+    ("Alemu", 1200),
+    ("bonsa", 750),
+    ("chala", 300),
+    ("dawit", 1000),
+    ("elsa", 150)
+]
+
+# 3. Variables to keep count of each tier
+premium_count = 0
+standard_count = 0
+basic_count = 0
+
+# 4. Loop through each customer
+for name, balance in customers:
+    # Find the tier for this customer
+    customer_tier = tier(balance)
+    
+    # Print the customer line
+    print(name, "-", customer_tier, "-", balance, "ETB")
+    
+
+# 5. Print the summary counts
+print("\nSummary:")
+print("Premium:", premium_count)
+print("Standard:", standard_count)
+print("Basic:", basic_count)
