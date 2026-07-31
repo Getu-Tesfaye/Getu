@@ -1,0 +1,41 @@
+<form action="/register" method="POST">
+    <! input name >
+    <p>
+        <label for="full-name">full name:</label><br>
+        <input type="text" id="full-name" name="fullName" required
+    </p>
+
+    <!input email>
+    <p>
+        <label for="email-addr">Email Address:</label><br>
+        <label type="email" id="email-addr" name="email" required>
+        </p>
+
+        <!input phone>
+        <p>
+            <label for="phone-num">phone number (+2519456765):</label><br>
+            <input
+            type="tel"
+            id="phon-num"
+            name="phone"
+            pattern="^\+251[0-9]{9}"
+            place holder="+2519456765"
+            required>
+            </p>
+
+            <!branch selector>
+        <p>
+        <label for="branch-selector">branch selector:</label><br>
+        <label id="branch-selector" name="branch" required>
+            <option value="">--choose a branch--</option>
+            <option value="bole">bole</option>
+            <option value="kazanchis">kazanchis</option>
+            <option value="piassa">Piassa</option>
+            </select>
+        </p>
+        <button type="summit">Register service</button>
+    </form>
+        
+            
+        
+        
