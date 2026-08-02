@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Exercise 5: Meta tags & Title -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Day 12 HTML Exercises covering forms, tables, media, accessibility, and meta tags.">
+  <title>Day 12 Exercises</title>
+</head>
+<body>
+
+  <!-- EXERCISE 1: Ethio Telecom Form -->
+  <!-- Note: GET is chosen here for demonstration so submitted parameters appear in the URL -->
+  <section id="exercise-1">
+    <h2>1. Registration Form</h2>
+    <form action="#" method="GET">
+      <div>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label for="phone">Phone Number (+251 + 9 digits):</label>
+        <input type="tel" id="phone" name="phone" pattern="\+251[0-9]{9}" placeholder="+251912345678" required>
+      </div>
+
+      <div>
+        <label for="branch">Select Branch:</label>
+        <select id="branch" name="branch" required>
+          <option value="">--Choose a branch--</option>
+          <option value="Bole">Bole</option>
+          <option value="Kazanchis">Kazanchis</option>
+          <option value="Piassa">Piassa</option>
+        </select>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </section>
+
+  <hr>
+
+  <!-- EXERCISE 2: Ethiopian Airlines Flight Table -->
+  <section id="exercise-2">
+    <h2>2. Flight Schedule</h2>
+    <table>
+      <caption>Ethiopian Airlines Daily Flight schedule</caption>
+      <thead>
+        <tr>
+          <th scope="col">Flight</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Departs</th>
+          <th scope="col">Price (ETB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ET 200</td>
+          <td>Addis Ababa</td>
+          <td>Adama</td>
+          <td>04:30 AM</td>
+          <td>20,400</td>
+        </tr>
+        <tr>
+          <td>ET 604</td>
+          <td>Addis Ababa</td>
+          <td>Bahir Dar</td>
+          <td>09:30 AM</td>
+          <td>4,200</td>
+        </tr>
+        <tr>
+          <td>ET 101</td>
+          <td>Addis Ababa</td>
+          <td>Gondar</td>
+          <td>11:00 AM</td>
+          <td>4,500</td>
+        </tr>
+        <tr>
+          <td>ET 302</td>
+          <td>Addis Ababa</td>
+          <td>Hawassa</td>
+          <td>02:15 PM</td>
+          <td>3,800</td>
+        </tr>
+        <tr>
+          <td>ET 405</td>
+          <td>Addis Ababa</td>
+          <td>Mekelle</td>
+          <td>05:00 PM</td>
+          <td>5,100</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <!-- EXERCISE 3: Media Block -->
+  <section id="exercise-3">
+    <h2>3. Landmark Media & Map</h2>
+    <figure>
+      <img src="https://via.placeholder.com/400x250" alt="Traditional Ethiopian Doro Wat served on Injera">
+      <figcaption>A delicious plate of traditional Ethiopian Doro Wat.</figcaption>
+    </figure>
+
+    <iframe 
+      src="https://www.google.com" 
+      width="400" 
+      height="300" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      title="Google Map location of Addis Ababa, Ethiopia">
+    </iframe>
+  </section>
+
+  <hr>
+
+  <!-- EXERCISE 4: Accessible Snippet Fixes -->
+  <section id="exercise-4">
+    <h2>4. Accessible Fixes</h2>
+    <!-- 
+      FIX 1: Converted <div> button to a real <button> tag so keyboard users can press Space/Enter.
+      FIX 2: Added a <label> linked via 'for' attribute so screen readers announce what the input is for.
+      FIX 3: Added descriptive 'alt' attribute to <img> for visually impaired screen-reader users.
+    -->
+    <button type="button">Click Me</button>
+
+    <div>
+      <label for="search-input">Search query:</label>
+      <input type="text" id="search-input" name="search">
+    </div>
+
+    <img src="https://via.placeholder.com/100" alt="Profile avatar icon for user account settings">
+  </section>
+
+</body>
+</html>
