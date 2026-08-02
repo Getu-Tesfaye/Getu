@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habesha Eatery - Bole</title>
+  <meta name="description" content="Reserve a table, view our menu, and contact Habesha Eatery in Bole, Addis Ababa.">
+</head>
+<body>
+
+  <header>
+    <h1>Habesha Eatery</h1>
+    <nav>
+      <a href="#reservations">Reservations & Menu</a> • 
+      <a href="#contact">Contact & Hours</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE 1 CONTENT: Reservations & Menu -->
+    <section id="reservations">
+      <h2>Book a Table</h2>
+      <form action="/reserve" method="post">
+        <div>
+          <label for="res-name">Full Name</label>
+          <input id="res-name" name="name" type="text" required>
+        </div>
+
+        <div>
+          <label for="res-date">Date</label>
+          <input id="res-date" name="date" type="date" required>
+        </div>
+
+        <div>
+          <label for="res-guests">Number of Guests</label>
+          <input id="res-guests" name="guests" type="number" min="1" max="10" required>
+        </div>
+
+        <button type="submit">Reserve</button>
+      </form>
+
+      <h2>Menu</h2>
+      <table>
+        <caption>Popular Dishes</caption>
+        <thead>
+          <tr>
+            <th scope="col">Dish</th>
+            <th scope="col">Price (ETB)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Doro Wat</td>
+            <td>450</td>
+          </tr>
+          <tr>
+            <td>Kitfo</td>
+            <td>500</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Featured Dish</h2>
+      <figure>
+        <img src="https://via.placeholder.com/100" alt="Special Doro Wat served with Injera">
+        <figcaption> Special Doro Wat</figcaption>
+      </figure>
+    </section>
+
+    <hr>
+
+    <!-- PAGE 2 CONTENT: Contact & Hours -->
+    <section id="contact">
+      <h2>Send Us a Message</h2>
+      <form action="/contact" method="post">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <h2>Opening Hours</h2>
+      <table>
+        <caption>Habesha Eatery Operating Hours</caption>
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday - Friday</td>
+            <td>8:00 AM - 10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Saturday - Sunday</td>
+            <td>9:00 AM - 11:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>Bole, Addis Ababa</footer>
+
+</body>
+</html>
