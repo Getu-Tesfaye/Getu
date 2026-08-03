@@ -1,0 +1,130 @@
+/* =========================================================
+   EXERCISE 1: CSS Variables (:root) & Styled Button
+   ========================================================= */
+:root {
+  --primary-color: #657ABE;
+  --secondary-color: #000006;
+  --spacing-unit: 12px 24px;
+  --font-stack: "times new Roman", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing-unit);
+  font-family: var(--font-stack);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   EXERCISE 2: Box Model Comparison
+   ========================================================= */
+/* Rendered width = 300px + 24px(left) + 24px(right) + 2px(left) + 2px(right) = 352px total */
+.card-content-box {
+  box-sizing: content-box;
+  width: 300px;
+  padding: 24px;
+  border: 2px solid #333555;
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+/* Rendered width = Exactly 300px total */
+.card-border-box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 24px;
+  border: 2px solid #222;
+  background-color: #e0f7fa;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   EXERCISE 3: Specificity Rules
+   ========================================================= */
+p {
+  color: red; /* Specificity Score: (0, 0, 1) - Element selector */
+}
+
+.text-sample {
+  color: green; /* Specificity Score: (0, 1, 0) - Class selector */
+}
+
+#unique-text {
+  color: blue; /* Specificity Score: (1, 0, 0) - ID selector (WINS) */
+}
+
+/* =========================================================
+   EXERCISE 4: Ethiopian Airlines Schedule Table
+   ========================================================= */
+.flight-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.flight-table th {
+  background-color: #006b3f; /* Dark Green header */
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.flight-table td {
+  padding: 12px; /* Comfortable padding */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Zebra striping */
+.flight-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* =========================================================
+   EXERCISE 5: Color Conversions & Lightness Hover
+   ========================================================= */
+/* Original Hex Palette:
+   1. Red:   #FF0000 -> rgb(255, 0, 0)   -> hsl(0, 100%, 50%)
+   2. Green: #00FF00 -> rgb(0, 255, 0)   -> hsl(120, 100%, 50%)
+   3. Blue:  #0000FF -> rgb(0, 0, 255) -> hsl(240, 100%, 50%)
+*/
+
+.color-box {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  transition: background-color 0.3s ease;
+}
+
+/* Red Box */
+.box-red {
+  background-color: hsl(0, 100%, 50%);
+}
+.box-red:hover {
+  background-color: hsl(0, 100%, 70%); /* Lightness increased from 50% to 70% */
+}
+
+/* Green Box */
+.box-green {
+  background-color: hsl(120, 100%, 50%);
+}
+.box-green:hover {
+  background-color: hsl(120, 100%, 70%); /* Lightness increased from 50% to 70% */
+}
+
+/* Blue Box */
+.box-blue {
+  background-color: hsl(240, 100%, 50%);
+}
+.box-blue:hover {
+  background-color: hsl(240, 100%, 70%); /* Lightness increased from 50% to 70% */
+}
