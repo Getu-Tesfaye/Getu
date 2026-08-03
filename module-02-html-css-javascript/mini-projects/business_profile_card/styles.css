@@ -1,6 +1,6 @@
 /* 1 variables and palette*/
 :root {
-    --rand-h: 212;
+    --brand-h: 212;
     --brand-s: 68;
     --brand-l-scale: 33;
 
@@ -8,11 +8,15 @@
 --brand-color: hsl(var(--brand-h), var(--brand-s), var(--brand-l-scale));
 
 /*grayscale palette   (variables names) */
+:root {
 --big-color: hsl(210, 20, 80);
 --card-big: hsl(0, 0, 0);
 --text-main: hsl(60, 10, 40);
 --text-muted: hsl(29, 0, 7);
 --border-color: hsl(9, 0, 0);
+--primary-color: hsl(5, 0, 0);
+--primary-hover: hsl(80, 40, 20);
+}
 
 /* spacing scale*/
 
@@ -108,7 +112,7 @@ body {
    ========================================= */
 .contact-btn {
     display: inline-block;
-    background-color: var(--brand-color);
+    background-color:  hsl(212, 83, 45);
     color: #ffffff;
     text-decoration: none;
     padding: var(--space-sm) var(--space-md);
