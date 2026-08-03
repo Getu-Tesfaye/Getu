@@ -1,0 +1,131 @@
+/* 1 variables and palette*/
+:root {
+    --rand-h: 212;
+    --brand-s: 68;
+    --brand-l-scale: 33;
+
+
+--brand-color: hsl(var(--brand-h), var(--brand-s), var(--brand-l-scale));
+
+/*grayscale palette   (variables names) */
+--big-color: hsl(210, 20, 80);
+--card-big: hsl(0, 0, 0);
+--text-main: hsl(60, 10, 40);
+--text-muted: hsl(29, 0, 7);
+--border-color: hsl(9, 0, 0);
+
+/* spacing scale*/
+
+--space-xs: 0.5rem;
+--space-sm: 2rem;
+--space-md: 1.5rem;
+--space-lg: 3rem;
+--space-xl: 3.5;
+
+/*typography*/
+--font-primary: 'popins', sans-serif;
+}
+
+/*  2  global Resets (box-sizing )*/
+
+*, *::before, *::after {
+    /* Global box-sizing as required */
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-primary);
+    color: var(--text-main);
+    /* Centering the card on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: var(--space-md);
+}
+
+/* =========================================
+   3. Card Layout (Box Model Focus)
+   ========================================= */
+.profile-card {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    /* Box Model Requirements */
+    padding: var(--space-xl) var(--space-lg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    
+    position: relative; /* Needed for the absolute pseudo-element */
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* Decorative Pseudo-element (Required) */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--brand-color);
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+
+/* =========================================
+   4. Typographic Hierarchy
+   ========================================= */
+.business-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+.tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--brand-color);
+    margin-bottom: var(--space-md);
+}
+
+.body-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    /* Generous line-height as required */
+    line-height: 1.7; 
+    margin-bottom: var(--space-lg);
+}
+
+/* =========================================
+   5. Button & Hover State
+   ========================================= */
+.contact-btn {
+    display: inline-block;
+    background-color: var(--brand-color);
+    color: #ffffff;
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+/* Changing ONLY lightness via HSL on hover (Required) */
+.contact-btn:hover {
+    /* 33% is the base lightness, we raise it to 45% for a lighter hover effect */
+    background-color: hsl(var(--brand-h), var(--brand-s), 45%); 
+}
+
+
+
+
+
+
+
