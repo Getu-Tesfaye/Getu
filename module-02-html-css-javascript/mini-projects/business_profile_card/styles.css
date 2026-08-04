@@ -15,7 +15,7 @@
 --text-muted: hsl(29, 0, 7);
 --border-color: hsl(9, 0, 0);
 --primary-color: hsl(5, 0, 0);
---primary-hover: hsl(80, 40, 20);
+--primary-hover: #435999;
 }
 
 /* spacing scale*/
