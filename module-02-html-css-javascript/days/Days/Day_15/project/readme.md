@@ -1,30 +1,73 @@
-               <Design & Visual Features>
-<Consistent Navigation & Branding>: Uniform top navbar and dark green footer (#014135) across all pages.
+1. <index.html (Landing Page)>
+Role: Serves as the primary entry point to welcome visitors.
 
-<Responsive Layouts>: Flexible CSS Grid for the gallery and menu items, and clean flexbox forms for interactive pages.
+Key Components:
 
-<Interactive Controls>: Hover states on navigation links, primary/secondary action buttons, and styled form controls with custom focus rings.
-        <Technologies Used>
-<HTML5>: Semantic document structuring (<header>, <main>, <section>, <footer>).
+<Header/Navbar>: Brand logo (Habesha Eatery), primary navigation links, and a call-to-action (CTA) button ("Reserve").
 
-<CSS3>: Custom variables, Flexbox, Grid, transitions, hover effects, and responsive design.
+<Hero Section>: Headline ("Welcome to Habesha Eatery"), tagline, and action buttons ("Explore Menu", "Book a Table").
 
-<Font Awesome (v6.4.0)>: Icons for contact details, calendar elements, and social media branding.
-# Habesha Eatery - Web Application
+2. <menu.html (Menu Showcase Page)>
+Role: Displays dishes and pricing in a clean grid.
 
-A responsive, multi-page web application for **Habesha Eatery** (Kebena Green), showcasing authentic Ethiopian cuisine, traditional dining culture, menu offerings, image gallery, customer contact, and table reservation functionality.
+Key Components:
 
+Filter categories (e.g., Traditional, Drinks, Desserts).
 
+Food cards containing an image (<img src="images/...">), title (<h3>), description (<p>), price tag, and an "Order" or "Add" button.
 
-## 📁 Project Structure
+3. <about.html (Story & Culture Page)>
+Role: Highlights the restaurant's origin, authentic Ethiopian heritage, and team values.
 
+Key Components:
 
-Day_15/project/
-│
-├── index.html        # Main landing page with hero banner & call-to-actions
-├── about.html        # Story of Habesha Eatery & cultural values (Gursha, Community)
-├── menu.html         # Traditional menu featuring dishes, descriptions & pricing
-├── gallery.html      # Responsive grid displaying food, cultural events & ambience
-├── contact.html      # Customer inquiry form with styled inputs
-├── reservation.html  # Table booking form (guests, date, time selection)
-└── style.css         # Master stylesheet (global colors, navbar, footer, grid layouts)
+Informational text blocks with styled headings.
+
+Side-by-side content grids featuring culture highlights and kitchen imagery.
+
+4. <reservation.html (Table Booking Page)>
+Role: Allows customers to book a table online.
+
+Key Components:
+
+Form Elements: Inputs for Full Name, Phone Number, Date (<input type="date">), Time (<input type="time">), and Guest Count (<select>).
+
+Styled submit button matching the primary theme.
+
+5. <contact.html (Contact & Location Page)>
+Role: Provides direct communication channels and physical location details.
+
+Key Components:
+
+Inquiry form (Name, Email, Message box).
+
+Direct contact details (Phone, Address, Hours) accompanied by FontAwesome icons.
+
+6. <Global Footer (<footer>)>
+Role: Consistently displayed across all HTML pages at the bottom.
+
+Key Components:
+
+Quick links to main pages (index.html, menu.html, etc.).
+
+Social media icons (fa-facebook, fa-instagram, fa-twitter).
+
+Copyright statement (© 2026 Habesha Eatery).
+
+3. <CSS Architecture (style.css)>
+The stylesheet turns static HTML skeletons into a polished, responsive user interface:
+
+<Global Reset & Variables>: Sets box-sizing, custom color codes (emerald greens, warm ambers, dark neutrals), and clean font families.
+
+<Navigation Bar Styling>: Modern flexbox navigation header with hover effects and rounded CTA buttons.
+
+Card Component System (.card):
+
+Class modifier pattern (.card-emerald, .card-amber) for individual color accents.
+
+<object-fit>: cover on .card-img so food imagery scales cleanly.
+
+Badge positioning and typography hierarchy.
+
+<Responsive Layouts>: Uses CSS Flexbox and CSS Grid to ensure the layout adapts smoothly across desktop, tablet, and mobile devices.
+
