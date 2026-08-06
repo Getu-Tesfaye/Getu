@@ -10,7 +10,7 @@ Key Components:
 2. <menu.html (Menu Showcase Page)>
 Role: Displays dishes and pricing in a clean grid.
 
-Key Components:
+<Key Components>:
 
 Filter categories (e.g., Traditional, Drinks, Desserts).
 
