@@ -1,73 +1,56 @@
-1. <index.html (Landing Page)>
-Role: Serves as the primary entry point to welcome visitors.
+1. index.html (Home Page)
+The primary entry point for users. It features:
 
-Key Components:
+Navigation bar with links to all site pages.
 
-<Header/Navbar>: Brand logo (Habesha Eatery), primary navigation links, and a call-to-action (CTA) button ("Reserve").
+Hero banner with a compelling call-to-action (CTA) button ("View Menu").
 
-<Hero Section>: Headline ("Welcome to Habesha Eatery"), tagline, and action buttons ("Explore Menu", "Book a Table").
+Brief "Featured Dishes" carousel/grid section.
 
-2. <menu.html (Menu Showcase Page)>
-Role: Displays dishes and pricing in a clean grid.
+Footer with copyright, location info, and social links.
+2. menu.html (Menu Page)
+An organized display of traditional Ethiopian cuisine:
 
-<Key Components>:
+Filterable or sectioned categories (Main Dishes, Vegetarian/Vegan Specialties, Drinks, Desserts).
 
-Filter categories (e.g., Traditional, Drinks, Desserts).
+Dish cards containing dish titles, Amharic/English descriptions, pricing, and high-quality food images.
 
-Food cards containing an image (<img src="images/...">), title (<h3>), description (<p>), price tag, and an "Order" or "Add" button.
+3. about.html (About Us Page)
+Dedicated to sharing the history and cultural roots of the eatery:
 
-3. <about.html (Story & Culture Page)>
-Role: Highlights the restaurant's origin, authentic Ethiopian heritage, and team values.
+Background on authentic Ethiopian cooking techniques and spices (Berbere, Niter Kibbeh).
 
-Key Components:
+The cultural tradition of Gursha and communal dining.
+4. contact.html (Contact & Reservation Page)
+Designed for client communication:
 
-Informational text blocks with styled headings.
+Interactive contact form (Name, Email, Message/Reservation Request).
 
-Side-by-side content grids featuring culture highlights and kitchen imagery.
+Direct phone numbers, business hours, and address details.
 
-4. <reservation.html (Table Booking Page)>
-Role: Allows customers to book a table online.
+Embedded location map setup.
 
-Key Components:
+5. css/styles.css (Stylesheets)
+The styling core of the application:
 
-Form Elements: Inputs for Full Name, Phone Number, Date (<input type="date">), Time (<input type="time">), and Guest Count (<select>).
+CSS variables for consistent brand colors (e.g., warm earthy tones, deep reds, greens, and gold).
 
-Styled submit button matching the primary theme.
+Custom typography imports for modern legibility.
 
-5. <contact.html (Contact & Location Page)>
-Role: Provides direct communication channels and physical location details.
+Flexbox and CSS Grid layouts for grid cards and navigation bar menus.
 
-Key Components:
+Hover effects, transitions, and media queries (@media) for cross-device responsiveness.
 
-Inquiry form (Name, Email, Message box).
+Technologies Used
+HTML5: Semantic structural layout.
 
-Direct contact details (Phone, Address, Hours) accompanied by FontAwesome icons.
+CSS3: Custom styling, animations, media queries, and layout systems.
 
-6. <Global Footer (<footer>)>
-Role: Consistently displayed across all HTML pages at the bottom.
+Git & GitHub: Version control and source code management.
 
-Key Components:
+Future Enhancements
+[ ] Add JavaScript for dynamic mobile menu navigation (hamburger menu toggle).
 
-Quick links to main pages (index.html, menu.html, etc.).
+[ ] Integrate active backend form submission handling (e.g., Formspree or custom Node.js backend).
 
-Social media icons (fa-facebook, fa-instagram, fa-twitter).
-
-Copyright statement (© 2026 Habesha Eatery).
-
-3. <CSS Architecture (style.css)>
-The stylesheet turns static HTML skeletons into a polished, responsive user interface:
-
-<Global Reset & Variables>: Sets box-sizing, custom color codes (emerald greens, warm ambers, dark neutrals), and clean font families.
-
-<Navigation Bar Styling>: Modern flexbox navigation header with hover effects and rounded CTA buttons.
-
-Card Component System (.card):
-
-Class modifier pattern (.card-emerald, .card-amber) for individual color accents.
-
-<object-fit>: cover on .card-img so food imagery scales cleanly.
-
-Badge positioning and typography hierarchy.
-
-<Responsive Layouts>: Uses CSS Flexbox and CSS Grid to ensure the layout adapts smoothly across desktop, tablet, and mobile devices.
-
+[ ] Add a online table reservation system.
