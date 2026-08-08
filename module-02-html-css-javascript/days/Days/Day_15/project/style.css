@@ -89,7 +89,7 @@ body {
   background-color: #9a3412 !important;
   transform: translateY(-2px);
 }
-/* Hero Section Styling */
+/* Hero Section Styling ==========================================================*/
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -116,7 +116,188 @@ body {
   gap: 16px;
 }
 
-/* Base Button Styles */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+  padding: 40px 20px;
+}
+
+/* Background Video Setup */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/*  (Keeps Text Readable) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* 55% black transparency */
+  z-index: 2;
+}
+
+
+/* Hero Container (Outer Wrapper) */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: transparent !important;
+  color: #ffffff;
+}
+
+/* Hero Title */
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Hero Description Paragraph */
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Controlled Hero Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Sets hero height to 60% of viewport height instead of full screen */
+  max-height: 500px; /* Prevents hero from growing too tall on large displays */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+}
+.amharic-text {
+  font-size: 0.8em;
+  font-weight: normal;
+  opacity: 0.9;
+  margin-left: 5px;
+}
+
+/* Scaled Video Background */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Fits video cleanly without distortion */
+  z-index: 1;
+}
+
+
+
+
+/* --- 1. Compact Hero Height for Mobile Screens --- */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 320px !important;      /* Forces exact compact height */
+    min-height: unset !important;  /* Overrides any min-height rule */
+    padding: 15px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .hero-buttons .btn {
+    padding: 8px 18px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+
+/* --- 2. Features Grid Styling (Under Hero/Menu) --- ==============================*/
+.features-section {
+  padding: 40px 20px;
+  background-color: #fdfbf7; /* Warm background */
+  text-align: center;
+}
+
+.features-title {
+  font-size: 1.8rem;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  flex: 1 1 250px; /* Responsive grid columns */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.2rem;
+  color: #d9531e; /* Accent orange/terracotta */
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #222222;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/*  Button Styles ==================================================*/
 .btn-secondary {
   color: #c0392b;
   text-decoration: none;
@@ -151,7 +332,7 @@ body {
   box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
   transform: translateY(-2px);
 }
-/* Gallery Styles */
+/* Gallery Styling============================================================= */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -191,9 +372,9 @@ body {
   }
 }
 
-/* Existing styles above ... */
 
-/* Site Footer */
+
+/*  Footer Styling ===============================================================*/
 .site-footer {
   background-color: #014135;
   color: #ffffff;
@@ -298,7 +479,7 @@ body {
     text-align: center;
   }
 }
-/* Contact Page Styling */
+/* Contact Page Styling =====================================================*/
 .contact-section {
   padding: 50px 20px;
   background-color: #fffaf0;
@@ -419,13 +600,13 @@ body {
   flex: 1;
 }
 
-/* Custom icon placement inside inputs */
+/* Custom icon placement inside inputs =============================================*/
 input[type="date"],
 input[type="time"] {
   font-family: inherit;
   color: #333;
 }
-/* Menu Page Styling */
+/* Menu Page Styling =================================================================*/
 .menu-section {
   max-width: 1000px;
   margin: 0 auto;
