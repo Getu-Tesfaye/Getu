@@ -1,8 +1,8 @@
 Ethio Telecom Web Interface 
 Overview
-This project is a static clone of the Ethio Telecom web portal built using semantic HTML5, CSS3, and modern layout techniques (CSS Grid and Flexbox). It features a responsive navigation bar, a hero banner section, package menu cards, and a footer section.
+This project is a static  of the Ethio Telecom web portal built using semantic HTML5, CSS3, and modern layout techniques (CSS Grid and Flexbox). It features a responsive navigation bar, a hero banner section, package menu cards, and a footer section.
 
-Technical Stack & Tools
+      Technical Stack & Tools
 Markup Language: HTML5 (Semantic elements)
 
 Styling: CSS3 (Flexbox, CSS Grid, Media Queries, CSS Transitions)
@@ -11,7 +11,7 @@ Design/Development Tools: VS Code, Live Server Extension, Google Chrome Develope
 
 Assets: Images/banners representing Ethio Telecom services (Glo Café, Voice Packages, telebirr)
 
-Structural Breakdown
+         Structural Breakdown
 1. Navigation Bar (<nav>)
 Purpose: Houses the main brand identity and top-level navigation links.
 
@@ -24,7 +24,7 @@ Purpose: Highlights primary promotional banners and featured offers.
 
 Layout: Organizes promotional banners using CSS Flexbox or Grid.
 
-Components: Display banners such as the "Glo Café / Tuesday Offer" image paired with key call-to-action text (Buy Mobile Data).
+Components: Display banners such as the  / Tuesday Offer" image paired with key call-to-action text (Buy Mobile Data).
 
 3. Menu Section (<section class="menu"> / <main>)
 Purpose: Displays service cards (e.g., Voice Packages, Internet Data Bundles, telebirr services).

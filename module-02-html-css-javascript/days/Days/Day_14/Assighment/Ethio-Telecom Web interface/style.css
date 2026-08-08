@@ -251,8 +251,8 @@ main {
 
 /* Force image icon size inside Quick Links */
 .quick-links-list img {
-  width: 300px !important;
-  height: 200px !important;
+  width: 400px !important;
+  height: 400px !important;
   object-fit: cover;
   border-radius: 8px; /* Optional: rounds image corners slightly */
   flex-shrink: 0;
