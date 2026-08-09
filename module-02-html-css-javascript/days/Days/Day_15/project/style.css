@@ -299,7 +299,8 @@ body {
 
 /*  Button Styles ==================================================*/
 .btn-secondary {
-  color: #c0392b;
+  background-color: red;
+  color: whitesmoke;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -309,7 +310,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #c0392b;
+  background-color: red;
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
@@ -362,13 +363,7 @@ body {
 
 @media (max-width: 1024px) {
   .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(minimax(220) auto, 1fr);
   }
 }
 
