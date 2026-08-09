@@ -49,6 +49,20 @@ header {
   color: var(--primary-green);
 }
 
+.logo-crop {
+  width: 55px;         /* Shows only the left symbol width */
+  height: 45px;        /* Limits to logo height */
+  overflow: hidden;    /* Cuts off the text on the right */
+  display: inline-block;
+}
+
+.logo-crop img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: left center; /* Keeps only the left side */
+}
+
 .nav-links {
   display: flex;
   list-style: none;
