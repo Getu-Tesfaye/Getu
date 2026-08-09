@@ -264,11 +264,146 @@ main {
   margin-left: auto;
 }
 
-/* 3. QUICK ACTION HUB============================================== */
+/* LINKS BANNER CTA */
+.banner-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Eye-Catching Heading */
+.cta-heading {
+  font-size: 38px;             /* Large visible text size */
+  font-weight: 800;             /* Extra bold */
+  color: #1a1a1a;               /* Dark contrast text */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* High-Attraction Button */
+.cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: #72be44;   /* Ethio Telecom vibrant green */
+  color: #ffffff;               /* High-contrast white text */
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;          /* Smooth pill shape */
+  box-shadow: 0 4px 15px rgba(114, 190, 68, 0.4); /* Glowing accent shadow */
+  transition: all 0.3s ease;
+}
+
+/* Interactive Hover Effect */
+.cta-button:hover {
+  background-color: #5da335;   /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 6px 20px rgba(114, 190, 68, 0.6);
+}
+
+/* Products and services styling===============================================*/
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  color: #72be44; /* Ethio Telecom Green */
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Grid Layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Card Container */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Container */
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card Content Area */
+.card-content {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card-title.default-title {
+  color: #2b2b2b;
+}
+
+.card-title.brand-title {
+  color: #72be44;
+}
+
+.card-description {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* Pill Button */
+.btn-read-more {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 24px;
+  border: 1.5px solid #8cc63f;
+  border-radius: 50px;
+  color: #72be44;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background-color: #72be44;
+  color: #ffffff;
+}
+
+/* 3. Popular Digital services styling============================================== */
 .action-hub {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px; 
 }
 
 .hub-header h2 {
@@ -370,7 +505,7 @@ main {
   width: fit-content;
 }
 
-/* CARD GRID STYLING ============================================*/
+/*   Featured services Styling ============================================*/
 .cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -499,7 +634,7 @@ main {
   }
 }
 
-/* 4. BRAND FOOTER ===============================================*/
+/* 4.  FOOTER ===============================================*/
 footer {
   background-color: var(--bg-dark);
   color: #ffffff;
