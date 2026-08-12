@@ -25,10 +25,10 @@ function createLoyaltyAccount(initialBalance = 0) {
     redeem: (pointsToRedeem) => {
       // Prevent balance from dropping below zero
       if (pointsToRedeem > pointsBalance) {
-        return false; // Transaction rejected
+        return false;
       }
       pointsBalance -= pointsToRedeem;
-      return true;    // Transaction accepted
+      return true;    
     }
   };
 }
@@ -54,11 +54,11 @@ console.log("After spending 100 ETB on Holiday:", myAccount.balance());
 // Result: 30 (10 existing + 20 new)
 
 // TEST 4: Redeem valid amount
-const success = myAccount.redeem(15);
-console.log("Redeemed 15 points successful?", success); // Result: true
-console.log("Remaining Balance:", myAccount.balance());  // Result: 15
+const success = myAccount.redeem(10);
+console.log("Redeemed 10 points successful?", success); // Result: true
+console.log("Remaining Balance:", myAccount.balance());  // Result: 20
 
 // TEST 5: Try to redeem more than available (Refuses negative balance)
 const failed = myAccount.redeem(100);
 console.log("Redeemed 100 points successful?", failed);  // Result: false
-console.log("Remaining Balance:", myAccount.balance());  // Result: 15
+console.log("Remaining Balance:", myAccount.balance());  // Result: 10

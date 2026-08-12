@@ -1,18 +1,32 @@
-Steps to Build the Module
-Create the Outer Function (createLoyaltyAccount)
-Declare a function that takes an optional starting balance. Inside it, create a points variable. Because this variable lives inside the function, it is private (a closure) and cannot be modified directly from the outside.
+Mini-Project: Loyalty Points Module
 
-Define a Default Earn Rule
-Create a small pure function that calculates standard points (for example, amountSpent / 10).
+A JavaScript loyalty-points module designed for a TeleBirr shop. It securely tracks customer point balances using **closures** and applies dynamic rules using **higher-order functions**.
 
-Expose the 3 Required Methods
-Return an object containing three methods:
+---
 
-balance(): Simply returns the current private points value.
+## 📌 Features
 
-earn(amount, rule): Runs the rule function on the amount, adds the result to the private points balance, and returns the points earned.
+- **Private State (Closure):** The customer's point balance cannot be accessed or modified directly from outside the module.
+- **Dynamic Rules (Higher-Order Functions):** Flexible earning rules (e.g., standard points vs. holiday double points) can be passed in without modifying core logic.
+- **Safe Redemption:** Refuses any point redemption that would result in a negative balance.
+- **Pure Logic:** Pure functions handle calculations, isolating console logs to the application edges.
 
-redeem(amount): Checks if there are enough points. If yes, subtracts them and returns true. If not, leaves the balance untouched and returns false.
+---
 
-Keep Console Logs Outside
-Keep all console.log statements outside the core logic so the calculation functions remain pure.
+## 🛠️ API Reference
+
+### `createLoyaltyAccount(initialBalance = 0)`
+Initializes a new customer loyalty account.
+
+#### Returned Methods:
+1. **`balance()`**
+   - **Returns:** `number` (The current point balance)
+2. **`earn(amountSpent, earnRule)`**
+   - **Parameters:**
+     - `amountSpent` (`number`): Spending total in ETB.
+     - `earnRule` (`function`, optional): Rule function determining points earned. Default is 1 point per 10 ETB.
+   - **Returns:** `number` (Points earned from transaction)
+3. **`redeem(pointsToRedeem)`**
+   - **Parameters:**
+     - `pointsToRedeem` (`number`): Number of points to deduct.
+   - **Returns:** `boolean` (`true` if successful, `false` if balance is insufficient

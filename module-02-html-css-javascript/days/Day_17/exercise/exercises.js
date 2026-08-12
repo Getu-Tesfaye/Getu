@@ -3,7 +3,6 @@ function vat(amount, rate = 0.15) {
   return amount * rate;
 }
 
-// Arrow Function (One-liner):
 const arrowvat = (amount, rate = 0.15) => amount * rate;
 
 console.log(vat(100)); // 15
@@ -23,7 +22,6 @@ const counter = makeCounter();
 console.log(counter()); // 1
 console.log(counter()); // 2
 
-// Why is count private?
 // Because 'count' is inside makeCounter(). You cannot access or change it directly from outside. Only the returned function can touch it.
 
 //3. Discount Factory
@@ -54,7 +52,7 @@ function applyToAll(list, fn) {
 const addVat = (price) => price * 1.15;
 
 const prices = [100, 200, 300];
-console.log(applyToAll(prices, addVat)); // [115, 230, 345]
+console.log(applyToAll(prices, addVat)); 
  
 //5. Print Ethiopian Cities with Index
 const cities = ["Addis Ababa", "Hawassa", "Gondar"];
