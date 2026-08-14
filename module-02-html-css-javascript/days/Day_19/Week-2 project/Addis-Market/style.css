@@ -1,0 +1,394 @@
+
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+
+    padding: 35px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.login-box h1 {
+    margin-bottom: 5px;
+}
+
+.login-box p {
+    color: #777;
+}
+
+.login-box h2 {
+    border: none;
+    margin-top: 25px;
+}
+
+.login-box input {
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 8px 0;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+}
+
+#loginButton {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: #222;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#loginButton:hover {
+    background-color: #444;
+}
+
+#loginError {
+    color: red;
+}
+
+/*===============================*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Georgia, 'Times New Roman', Geneva, Taho;
+
+    background-color: black;
+
+    color: blue;
+}
+
+
+/* ============================= */
+
+
+.container {
+    width: 120%;
+    max-width: 650px;
+
+    margin: 50px auto;
+
+    padding: 30px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================= */
+
+
+h1 {
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    font-size: 42px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: black;
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+}
+
+
+/* ============================= */
+
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 7px;
+
+    font-size: 25px;
+}
+
+input:focus {
+    outline: none;
+
+    border-color: green;
+}
+
+
+/* ============================= */
+
+
+.add-button {
+    margin-top: 10px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background-color: green;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #444;
+}
+
+
+/* ============================= */
+
+
+#error {
+    color: #d32f2f;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    min-height: 20px;
+}
+
+
+/* ============================= */
+
+
+h2 {
+    margin-top: 25px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+#list {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+}
+
+
+/* ============================= */
+
+
+.item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    background-color: #f8f8f8;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+}
+
+
+
+
+.item-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.item-name {
+    font-weight: bold;
+
+    font-size: 17px;
+}
+
+.item-price {
+    color: black;
+}
+
+
+/* ============================= */
+
+
+.buttons {
+    display: flex;
+
+    gap: 7px;
+}
+
+.buy-button,
+.delete-button {
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+
+
+.buy-button {
+    background-color: #388e3c;
+}
+
+.buy-button:hover {
+    background-color: #2e7d32;
+}
+
+
+/* Delete button */
+
+.delete-button {
+    background-color: #d32f2f;
+}
+
+.delete-button:hover {
+    background-color: #b71c1c;
+}
+
+
+/* ============================= */
+
+
+.item.bought {
+    opacity: 0.55;
+
+    background-color: #e8f5e9;
+}
+
+.item.bought .item-name {
+    text-decoration: line-through;
+}
+
+
+/* ============================= */
+
+
+.total-box {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background-color: orange;
+
+    border-radius: 8px;
+
+    font-size: 20px;
+}
+
+.total-box strong {
+    font-size: 41px;
+}
+
+
+/* ============================= */
+
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+
+        margin: 20px auto;
+
+        padding: 20px;
+    }
+
+    .item {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .buttons {
+        width: 100%;
+    }
+
+    .buy-button,
+    .delete-button {
+        flex: 1;
+    }
+}
