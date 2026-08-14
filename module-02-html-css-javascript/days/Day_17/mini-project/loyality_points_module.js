@@ -1,5 +1,5 @@
 
-function createLoyaltyAccount(initialBalance = 0) {
+function createLoyaltyAccount(initialBalance = 10) {
   let pointsBalance = initialBalance;
 
   const standardRule = (amount) => Math.floor(amount / 10);
