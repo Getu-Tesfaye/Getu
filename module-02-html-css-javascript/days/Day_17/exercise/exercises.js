@@ -8,9 +8,9 @@ const arrowvat = (amount, rate = 0.15) => amount * rate;
 console.log(vat(100)); // 15
 
 
-//  2. Private Counter (Closure)
+
 function makeCounter() {
-  let count = 0; // Private variable
+  let count = 0; 
   
   return function() {
     count++;
@@ -22,10 +22,6 @@ const counter = makeCounter();
 console.log(counter()); // 1
 console.log(counter()); // 2
 
-// Because 'count' is inside makeCounter(). You cannot access or change it directly from outside. Only the returned function can touch it.
-
-//3. Discount Factory
-// Factory function that creates discount math
 function discountBy(rate) {
   return function(price) {
     return price - (price * rate);
@@ -35,11 +31,11 @@ function discountBy(rate) {
 const memberPrice = discountBy(0.10); 
 const salePrice = discountBy(0.30);   
 
-console.log(memberPrice(1000)); // 900 ETB
-console.log(salePrice(1000));   // 700 ETB
+console.log(memberPrice(1000)); 
+console.log(salePrice(1000));   
   
 
-//4. Custom Function to Process an Array (applyToAll)
+
 function applyToAll(list, fn) {
   const result = [];
   for (let item of list) {
@@ -48,13 +44,13 @@ function applyToAll(list, fn) {
   return result;
 }
 
-// Function to add 15% VAT to a price
+
 const addVat = (price) => price * 1.15;
 
 const prices = [100, 200, 300];
 console.log(applyToAll(prices, addVat)); 
  
-//5. Print Ethiopian Cities with Index
+
 const cities = ["Addis Ababa", "Hawassa", "Gondar"];
 
 cities.forEach((city, index) => {
