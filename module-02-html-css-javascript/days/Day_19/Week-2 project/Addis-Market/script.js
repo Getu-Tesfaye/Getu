@@ -45,17 +45,14 @@ form.addEventListener("submit", function(event) {
 
   
     const itemInfo = document.createElement("div");
-
     itemInfo.classList.add("item-info");
 
     const itemName = document.createElement("span");
-
     itemName.classList.add("item-name");
 
     itemName.textContent = name;
 
     const itemPrice = document.createElement("span");
-
     itemPrice.classList.add("item-price");
 
     itemPrice.textContent = price.toFixed(2) + " ETB";
@@ -63,21 +60,16 @@ form.addEventListener("submit", function(event) {
     itemInfo.append(itemName, itemPrice);
 
     const buttons = document.createElement("div");
-
     buttons.classList.add("buttons")
 
     const buyButton = document.createElement("button");
-
     buyButton.textContent = "Bought";
-
     buyButton.classList.add("buy-button");
 
     buyButton.type = "button";
 
     const deleteButton = document.createElement("button");
-
     deleteButton.textContent = "Delete";
-
     deleteButton.classList.add("delete-button");
 
     deleteButton.type = "button";
@@ -88,7 +80,6 @@ form.addEventListener("submit", function(event) {
     buttons.append(buyButton, deleteButton);
 
     item.append(itemInfo, buttons);
-
 
     list.append(item)
 
@@ -155,7 +146,6 @@ list.addEventListener("click", function(event) {
     }
 
 });
-
 
 
 
