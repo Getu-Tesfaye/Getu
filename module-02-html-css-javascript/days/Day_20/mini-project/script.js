@@ -1,3 +1,4 @@
+
 const out = document.querySelector("#facts");
 
 
