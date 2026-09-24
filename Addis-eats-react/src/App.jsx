@@ -13,7 +13,7 @@ import AdminLogin from './AdminLogin';
 import Admin from './Admin';
 import AdminMenu from './AdminMenu';
 import AdminOrders from './AdminOrders';
-import Footer from './footer';
+import Footer from './Footer';
 
 
 function AppContent() {
