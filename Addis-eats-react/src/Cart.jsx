@@ -31,9 +31,14 @@ function Cart({ cart, setCart }) {
                         </div>
                     ))}
 
-                    <Link to="/checkout">
-                        <button>Proceed to Checkout</button>
-                    </Link>
+                    <button onClick={() => setCart([])}>
+    Clear Cart
+</button>
+<Link to="/checkout">
+    <button className="checkout-button">
+        Proceed to Checkout
+    </button>
+</Link>
                 </>
             )}
         </div>
