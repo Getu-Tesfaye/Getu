@@ -8,7 +8,7 @@ import Cart from './Cart';
 import Checkout from './Checkout';
 import Orders from './Orders';
 import Header from './Header';
-import Favorites from './Favorites';
+import Favorites from './favorites';
 import AdminLogin from './AdminLogin';
 import Admin from './Admin';
 import AdminMenu from './AdminMenu';
