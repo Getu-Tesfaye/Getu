@@ -1,0 +1,168 @@
+ [
+    
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "description": "Spicy Ethiopian chicken stew with berbere, served with injera",
+    "price": 350,
+    "category": "Special",
+    "image": "/images/DORO.jpg",
+    "ingredients": ["Chicken", "Berbere", "Onions", "Injera", "Garlic", "Ginger"]
+  },
+  {
+    "id": 2,
+    "name": "Tibs",
+    "description": "Sautéed beef or lamb with peppers, onions, and rosemary",
+    "price": 320,
+    "category": "Special",
+    "image": "/images/DEREK.jpg",
+    "ingredients": ["Beef", "Bell Peppers", "Onions", "Rosemary", "Butter", "Injera"]
+  },
+  {
+    "id": 3,
+    "name": "Shiro Wat",
+    "description": "Creamy chickpea stew seasoned with berbere and spices",
+    "price": 180,
+    "category": "Special",
+    "image": "/images/SHIRO.jpg",
+    "ingredients": ["Chickpea Flour", "Berbere", "Garlic", "Onions", "Injera"]
+  },
+  {
+    "id": 4,
+    "name": "Kitfo",
+    "description": "Minced raw beef seasoned with mitmita and niter kibbeh",
+    "price": 400,
+    "category": "Special",
+    "image": "/images/kitfo.jpg",
+    "ingredients": ["Beef", "Mitmita", "Niter Kibbeh", "Injera", "Cottage Cheese"]
+  },
+  {
+    "id": 5,
+    "name": "Special kitfo",
+    "description": "Shredded injera mixed with spicy berbere sauce",
+    "price": 150,
+    "category": "special",
+    "image": "/images/firfir.jpg",
+    "ingredients": ["Injera", "Berbere", "Onions", "Garlic", "Butter"]
+  },
+  {
+    "id": 6,
+    "name": "special Pizza",
+    "description": "Classic pizza with tomato sauce, mozzarella, and fresh basil",
+    "price": 280,
+    "category": "Pizza",
+    "image": "/images/SPECIALP.jpg",
+    "ingredients": ["Tomato Sauce", "Mozzarella", "Basil", "Olive Oil", "Dough"]
+  },
+  {
+    "id": 7,
+    "name": "normal Pizza",
+    "description": "Loaded with spicy pepperoni and melted cheese",
+    "price": 320,
+    "category": "Pizza",
+    "image": "/images/NORMALP.jpg",
+    "ingredients": ["Pepperoni", "Mozzarella", "Tomato Sauce", "Oregano", "Dough"]
+  },
+  {
+    "id": 8,
+    "name": "special tibs",
+    "description": "Fresh vegetables on a crispy crust with herb sauce",
+    "price": 260,
+    "category": "Special",
+    "image": "/images/TIBSS.jpg",
+    "ingredients": ["Bell Peppers", "Mushrooms", "Olives", "Onions", "Mozzarella"]
+  },
+  {
+    "id": 9,
+    "name": "special Burger",
+    "description": "Juicy beef patty with lettuce, tomato, and special sauce",
+    "price": 220,
+    "category": "Burgers",
+    "image": "/images/SPECIALB.jpg",
+    "ingredients": ["Beef Patty", "Lettuce", "Tomato", "Onion", "Bun", "Special Sauce"]
+  },
+  {
+    "id": 10,
+    "name": "peperoni pizza",
+    "description": "Double cheese burger with pickles and caramelized onions",
+    "price": 250,
+    "category": "Pizza",
+    "image": "/images/PEPERONI.jpg",
+    "ingredients": ["Beef Patty", "Cheddar", "Pickles", "Onions", "Bun"]
+  },
+  {
+    "id": 11,
+    "name": "Chicken Burger",
+    "description": "Crispy fried chicken breast with coleslaw and mayo",
+    "price": 240,
+    "category": "Burgers",
+    "image": "/images/CHICKENB.jpg",
+    "ingredients": ["Chicken Breast", "Coleslaw", "Mayo", "Lettuce", "Bun"]
+  },
+  {
+    "id": 12,
+    "name": "Fresh Mango Juice",
+    "description": "Freshly blended ripe mango juice",
+    "price": 80,
+    "category": "Vegetables",
+    "image": "/images/MANGOJ.jpg",
+    "ingredients": ["Mango", "Water", "Sugar"]
+  },
+  {
+    "id": 13,
+    "name": "Avocado Smoothie",
+    "description": "Creamy avocado blended with milk and honey",
+    "price": 90,
+    "category": "Vegetables",
+    "image": "/images/AVOCADO.jpg",
+    "ingredients": ["Avocado", "Milk", "Honey", "Ice"]
+  },
+  {
+    "id": 14,
+    "name": "Ethiopian Coffee",
+    "description": "Traditional buna served in a jebena",
+    "price": 60,
+    "category": "Drinks",
+    "image": "/images/COFFEE.jpg",
+    "ingredients": ["Coffee Beans", "Water", "Sugar"]
+  },
+  {
+    "id": 15,
+    "name": "Sparkling Water",
+    "description": "Chilled sparkling mineral water",
+    "price": 40,
+    "category": "Drinks",
+    "image": "/images/WATER.jpg",
+    "ingredients": ["Mineral Water", "Carbonation"]
+  },
+  {
+    "id": 16,
+    "name": "collection",
+    "description": "Chilled sparkling mineral water",
+    "price": 40,
+    "category": "Special",
+    "image": "/images/BAYAINET.jpg",
+    "ingredients": [" Water", "teff"]
+  },
+{
+  "id": 17,
+    "name": "dinner",
+    "description": "Chilled sparkling mineral water",
+    "price": 40,
+    "category": "Special",
+    "image": "/images/DINNER.jpg",
+    "ingredients": [" Water", "teff"]
+},
+{
+  "id": 18,
+    "name": "breakfast",
+    "description": "Chilled sparkling mineral water",
+    "price": 40,
+    "category": "Special",
+    "image": "/images/BREAKFAST.jpg",
+    "ingredients": [" Water", "teff"]
+}
+  
+]
+
+
