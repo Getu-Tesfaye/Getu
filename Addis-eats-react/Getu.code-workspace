@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": ".."
+		},
+		{
+			"path": "../../sq2-getu-tesfaye"
 		}
 	],
 	"settings": {}
