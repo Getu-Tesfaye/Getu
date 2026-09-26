@@ -30,8 +30,8 @@ function Footer() {
                     <h3>Contact Us</h3>
 
                     <p>📍 Addis Ababa, Ethiopia</p>
-                    <p>📞 +251 900 678765</p>
-                    <p>✉️ addis.com</p>
+                    <p>📞 +251 900 770469</p>
+                    <p>✉️ getutesfaye919@gmail.com</p>
                     <p>🕒 Open: 1:00 AM - 10:00 PM</p>
                 </div>
 
@@ -39,7 +39,7 @@ function Footer() {
                     <h3>Follow Us</h3>
 
                     <a href="#" target="_blank">Facebook</a>
-                    <a href="#" target="_blank">Instagram</a>
+                    <a href="#" target="_blank">linkedin</a>
                     <a href="#" target="_blank">Telegram</a>
                     <a href="#" target="_blank">TikTok</a>
                 </div>
@@ -47,7 +47,7 @@ function Footer() {
             </div>
 
             <div className="footer-bottom">
-                <p>© 2026 Addis Eats. All rights reserved.</p>
+                <p>© 2026 Getu T. All rights reserved.</p>
 
                 <div className="footer-bottom-links">
                     <Link to="/privacy">Privacy Policy</Link>
