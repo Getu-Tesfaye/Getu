@@ -1,8 +1,8 @@
- [
-    
+[
   {
     "id": 1,
     "name": "Doro Wat",
+    "nameAmharic": "ዶሮ ወጥ",
     "description": "Spicy Ethiopian chicken stew with berbere, served with injera",
     "price": 350,
     "category": "Special",
@@ -12,6 +12,7 @@
   {
     "id": 2,
     "name": "Tibs",
+    "nameAmharic": "ጥብስ",
     "description": "Sautéed beef or lamb with peppers, onions, and rosemary",
     "price": 320,
     "category": "Special",
@@ -21,6 +22,7 @@
   {
     "id": 3,
     "name": "Shiro Wat",
+    "nameAmharic": "ሽሮ ወጥ",
     "description": "Creamy chickpea stew seasoned with berbere and spices",
     "price": 180,
     "category": "Special",
@@ -30,6 +32,7 @@
   {
     "id": 4,
     "name": "Kitfo",
+    "nameAmharic": "ክትፎ",
     "description": "Minced raw beef seasoned with mitmita and niter kibbeh",
     "price": 400,
     "category": "Special",
@@ -39,6 +42,7 @@
   {
     "id": 5,
     "name": "Special kitfo",
+    "nameAmharic": "ልዩ ክትፎ",
     "description": "Shredded injera mixed with spicy berbere sauce",
     "price": 150,
     "category": "special",
@@ -48,6 +52,7 @@
   {
     "id": 6,
     "name": "special Pizza",
+    "nameAmharic": "ልዩ ፒዛ",
     "description": "Classic pizza with tomato sauce, mozzarella, and fresh basil",
     "price": 280,
     "category": "Pizza",
@@ -57,6 +62,7 @@
   {
     "id": 7,
     "name": "normal Pizza",
+    "nameAmharic": "መደበኛ ፒዛ",
     "description": "Loaded with spicy pepperoni and melted cheese",
     "price": 320,
     "category": "Pizza",
@@ -66,6 +72,7 @@
   {
     "id": 8,
     "name": "special tibs",
+    "nameAmharic": "ልዩ ጥብስ",
     "description": "Fresh vegetables on a crispy crust with herb sauce",
     "price": 260,
     "category": "Special",
@@ -75,6 +82,7 @@
   {
     "id": 9,
     "name": "special Burger",
+    "nameAmharic": "ልዩ በርገር",
     "description": "Juicy beef patty with lettuce, tomato, and special sauce",
     "price": 220,
     "category": "Burgers",
@@ -84,6 +92,7 @@
   {
     "id": 10,
     "name": "peperoni pizza",
+    "nameAmharic": "ፔፐሮኒ ፒዛ",
     "description": "Double cheese burger with pickles and caramelized onions",
     "price": 250,
     "category": "Pizza",
@@ -93,6 +102,7 @@
   {
     "id": 11,
     "name": "Chicken Burger",
+    "nameAmharic": "የዶሮ በርገር",
     "description": "Crispy fried chicken breast with coleslaw and mayo",
     "price": 240,
     "category": "Burgers",
@@ -102,6 +112,7 @@
   {
     "id": 12,
     "name": "Fresh Mango Juice",
+    "nameAmharic": "ትኩስ ማንጎ ጭማቂ",
     "description": "Freshly blended ripe mango juice",
     "price": 80,
     "category": "Vegetables",
@@ -111,6 +122,7 @@
   {
     "id": 13,
     "name": "Avocado Smoothie",
+    "nameAmharic": "አቮካዶ ስሙዚ",
     "description": "Creamy avocado blended with milk and honey",
     "price": 90,
     "category": "Vegetables",
@@ -120,6 +132,7 @@
   {
     "id": 14,
     "name": "Ethiopian Coffee",
+    "nameAmharic": "የኢትዮጵያ ቡና",
     "description": "Traditional buna served in a jebena",
     "price": 60,
     "category": "Drinks",
@@ -129,6 +142,7 @@
   {
     "id": 15,
     "name": "Sparkling Water",
+    "nameAmharic": "ካርቦናዊ ውሃ",
     "description": "Chilled sparkling mineral water",
     "price": 40,
     "category": "Drinks",
@@ -138,31 +152,31 @@
   {
     "id": 16,
     "name": "collection",
+    "nameAmharic": "ስብስብ",
     "description": "Chilled sparkling mineral water",
     "price": 40,
     "category": "Special",
     "image": "/images/BAYAINET.jpg",
     "ingredients": [" Water", "teff"]
   },
-{
-  "id": 17,
+  {
+    "id": 17,
     "name": "dinner",
+    "nameAmharic": "እራት",
     "description": "Chilled sparkling mineral water",
     "price": 40,
     "category": "Special",
     "image": "/images/DINNER.jpg",
     "ingredients": [" Water", "teff"]
-},
-{
-  "id": 18,
+  },
+  {
+    "id": 18,
     "name": "breakfast",
+    "nameAmharic": "ቁርስ",
     "description": "Chilled sparkling mineral water",
     "price": 40,
     "category": "Special",
     "image": "/images/BREAKFAST.jpg",
     "ingredients": [" Water", "teff"]
-}
-  
+  }
 ]
-
-

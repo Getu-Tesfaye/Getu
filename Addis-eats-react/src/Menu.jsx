@@ -83,7 +83,9 @@ function Menu({ cart, setCart, favorites, setFavorites }) {
               />
             </button>
             <img src={dish.image} alt={dish.name} className="dish-image" />
-            <h3>{dish.name}</h3>
+            <h3>
+  {dish.name} <span className="amharic-text dish-amharic">| {dish.nameAmharic}</span>
+</h3>
             <p>{dish.description}</p>
             <p className="dish-price">{dish.price} ETB</p>
             <button
