@@ -1,115 +1,103 @@
-import { Link, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Search, Heart } from "lucide-react";
 
+const categories = ["All", "Special", "Pizza", "Burgers", "Drinks", "Vegetables"];
 
-function Menu({cart, setCart, favorites, setFavorites}) {
+function Menu({ cart, setCart, favorites, setFavorites }) {
+  const [menuData, setMenuData] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [query, setQuery] = useState("");
 
-    const [search, setSearch] = useState("");
+  useEffect(() => {
+    fetch("/menu-data.json")
+      .then((res) => res.json())
+      .then((data) => setMenuData(data))
+      .catch((err) => console.error("Failed to load menu:", err));
+  }, []);
 
-    
-    const [searchParams, setSearchParams] = useSearchParams();
-    const urlCategory = searchParams.get("category");
-   const [category, setCategory] = useState(urlCategory || "All");
+  const filtered = menuData.filter((dish) => {
+    const matchesCategory =
+      activeCategory === "All" ||
+      dish.category.toLowerCase() === activeCategory.toLowerCase();
+    const matchesQuery = dish.name.toLowerCase().includes(query.toLowerCase());
+    return matchesCategory && matchesQuery;
+  });
 
-    const [dishes, setDishes] = useState([]);
-    
-    const [loading, setLoading] =useState(true);
-
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        fetch("/menu-data.json")
-        .then((response) => response.json())
-       .then((data) => {
-    setDishes(data);
-
-    setTimeout(() => {
-        setLoading(false);
-    }, 1000);
-})
-        .catch((error) => {
-            setError("failed to load dishes.");
-            setLoading(false);
-        });
-
-    }, []);
-
-    const filteredDishes = dishes.filter((dish) => 
-    dish.name.toLowerCase().includes(search.toLowerCase()) && (category === "All" || dish.category === category)
-);
-
-    return (
-        <main className="menu-page">
-            <h1>Our Menu</h1>
-
-            {loading && (
-    <div className="skeleton-grid">
-        <div className="skeleton-card"></div>
-        <div className="skeleton-card"></div>
-        <div className="skeleton-card"></div>
-        <div className="skeleton-card"></div>
-    </div>
-)}
-
-
-            {error && <p>{error}</p>}
-  <input type="search" placeholder="search dishes..." value={search}  onChange={(e) => setSearch(e.target.value)}></input>
-
-             {filteredDishes.length === 0 && (
-                <p>no dishes found</p>
-            )}
-
-            <div>
- <button onClick={() => {  setCategory("All"); setSearchParams({category: 'All'}); }}>All</button>
-
-  <button onClick={() => { setCategory("Special"); setSearchParams({ category: "Special"}); }}>Special</button>
-
-<button onClick={() => { setCategory("Pizza"); setSearchParams({ category: "Pizza"}); }}>Pizza</button>
-                
-<button onClick={() => { setCategory("Burgers"); setSearchParams({category: "Burgers"}); }}>Burgers</button>
-
- <button onClick={() => { setCategory("Drinks");  setSearchParams({category: "Drinks"}); }}>Drinks</button>
-
- <button onClick={() => {setCategory("Vegetables"); setSearchParams({category: "Vegetables"});  }}>Vegetables</button>
-            </div>
-
-           
-           <div className="dish-grid">
-            {filteredDishes.map((dish) => (
-                <div key={dish.id} className="dish-card">
-                    <img src={dish.image} alt={dish.name}
-                    className="dish-image"/>
-
-                    <h3>{dish.name}</h3>
-                    <p>{dish.description}</p>
-                    <p>{dish.price} ETB</p>
-
-                    
-                    <Link to={`/menu/${dish.id}`}>view Details</Link>
-
-                    <br />
-
-                    <button onClick={() => setCart([...cart,  { ...dish, quantity: 1}])}>Add to cart</button>
-
-
-                    <span className="favorite-button" onClick={() => {
-                        if (favorites.some((item) => item.id === dish.id)) {
-                            setFavorites(
-                                favorites.filter((item) => item.id !== dish.id)
-                            );
-                        }else {
-                            setFavorites([...favorites, dish]); }  }}>{favorites.some((item) => item.id === dish.id) ? "♥" : "♡"}</span>
- 
-
-                </div>
-            ))}
-
-            </div>
-
-        </main>
-            
-            
-        
+  const toggleFavorite = (dish) => {
+    const exists = favorites.some((f) => f.id === dish.id);
+    setFavorites(
+      exists ? favorites.filter((f) => f.id !== dish.id) : [...favorites, dish]
     );
+  };
+
+  const addToCart = (dish) => {
+    setCart([...cart, dish]);
+  };
+
+  return (
+    <div className="menu-page">
+      <h1>Our Menu</h1>
+      <p className="menu-subtitle">Fresh, authentic Ethiopian dishes made daily</p>
+
+      <div className="search-wrap">
+        <Search size={18} />
+        <input
+          type="search"
+          placeholder="search dishes..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+
+      <div className="category-pills">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            type="button"
+            className={activeCategory === cat ? "active" : ""}
+            onClick={() => setActiveCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {menuData.length === 0 && <p>Loading menu...</p>}
+
+      {menuData.length > 0 && filtered.length === 0 && (
+        <p>No dishes match your search.</p>
+      )}
+
+      <div className="dish-grid">
+        {filtered.map((dish) => (
+          <div className="dish-card" key={dish.id}>
+            <button
+              type="button"
+              className="favorite-button"
+              onClick={() => toggleFavorite(dish)}
+            >
+              <Heart
+                size={20}
+                fill={favorites.some((f) => f.id === dish.id) ? "red" : "none"}
+                color="red"
+              />
+            </button>
+            <img src={dish.image} alt={dish.name} className="dish-image" />
+            <h3>{dish.name}</h3>
+            <p>{dish.description}</p>
+            <p className="dish-price">{dish.price} ETB</p>
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => addToCart(dish)}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
+
 export default Menu;
