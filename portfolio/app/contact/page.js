@@ -46,7 +46,7 @@ export default function Contact() {
             <strong>GitHub</strong>
 
             <a
-              href="https://github.com/Getu-Tesfaye/Getu"
+              href="https://github.com/IBT-Qiyas-Full-Stack-Academy/sq2-getu-tesfaye.git"
               target="_blank"
               rel="noopener noreferrer"
             >
