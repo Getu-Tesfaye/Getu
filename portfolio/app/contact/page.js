@@ -50,7 +50,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              github.com/Getu-Tesfaye/Getu
+              https://github.com/IBT-Qiyas-Full-Stack-Academy/sq2-getu-tesfaye.git
             </a>
           </div>
 
