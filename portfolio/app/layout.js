@@ -1,4 +1,5 @@
 import CustomCursor from "./components/CustomCursor";
+import Footer from "./components/Footer";
 import Link from "next/link";
 import "./globals.css";
 
@@ -62,6 +63,8 @@ export default function RootLayout({ children }) {
         </header>
 
         {children}
+
+        <Footer />
 
       </body>
     </html>

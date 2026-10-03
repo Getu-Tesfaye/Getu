@@ -1619,3 +1619,138 @@ main {
 
   border-radius: 50%;
 }
+
+/* =========================================================
+   PROFESSIONAL FOOTER
+   ========================================================= */
+
+.contact-footer {
+  width: 100%;
+  padding: 70px 40px 25px;
+  border-top: 1px solid var(--border);
+  background: rgba(5, 7, 12, 0.9);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.7fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.footer-brand h3 {
+  margin: 0 0 10px;
+  font-family: monospace;
+  font-size: 26px;
+  color: white;
+}
+
+.footer-brand h3 span {
+  color: var(--blue);
+}
+
+.footer-brand p {
+  margin: 7px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-brand p span {
+  color: var(--cyan);
+}
+
+.footer-description {
+  max-width: 330px;
+  line-height: 1.7;
+}
+
+.footer-links,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links h4,
+.footer-social h4 {
+  margin: 0 0 8px;
+  color: white;
+  font-family: monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-links a,
+.footer-social a {
+  width: fit-content;
+  color: #b9c1d0;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: var(--cyan);
+  transform: translateX(4px);
+}
+
+.footer-social a::before {
+  content: "→ ";
+  color: var(--blue);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 55px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #596274;
+  font-family: monospace;
+  font-size: 10px;
+}
+
+/* Mobile Footer */
+
+@media (max-width: 700px) {
+  .contact-footer {
+    padding: 55px 22px 25px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-links,
+  .footer-social {
+    align-items: center;
+  }
+
+  .footer-links a:hover,
+  .footer-social a:hover {
+    transform: none;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+  }
+}
