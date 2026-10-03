@@ -1,149 +1,157 @@
 import Link from "next/link";
 
-const addisEatsImages = [
-  "/images/landing page.png",
-  "/images/memu second page.png",
-  "/images/menu third page.png",
-  "/images/login.png",
-  "/images/my favorites.png",
-  "/images/add.png",
-  "/images/edit.png",
-  "/images/cart.png",
-  "/images/card.png",
-];
-
-const ethioTelecomImages = [
-  "/images/nexus.jpg",
-  "/images/inoo.jpg",
-  "/images/sets.jpg",
-  "/images/launch.jpeg",
-];
-
-const adaptiveFilterImages = [
-  "/images/sig_avg.png",
-  "/images/signoiseratio2.jpg",
+const projects = [
+  {
+    number: "01",
+    title: "Addis Eats",
+    type: "WEB APPLICATION",
+    description:
+      "A food ordering web application with menu browsing, dish details, favorites, shopping cart, checkout, orders, and an admin dashboard.",
+    technologies: "React • JavaScript • HTML • CSS",
+    live: "https://addis-eats-react-red.vercel.app/",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "02",
+    title: "Birr Watch",
+    type: "WEB APPLICATION",
+    description:
+      "A currency conversion and watchlist application designed to practice working with exchange rates, user interactions, and responsive interfaces.",
+    technologies: "JavaScript • React • CSS",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "03",
+    title: "Simple Calculator",
+    type: "PYTHON PROJECT",
+    description:
+      "A simple console-based calculator created to practice Python programming, user input, calculations, and basic program logic.",
+    technologies: "Python",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "04",
+    title: "Addis Bank Account System",
+    type: "PYTHON PROJECT",
+    description:
+      "A banking application created to practice object-oriented programming, account management, deposits, withdrawals, and basic transaction logic.",
+    technologies: "Python • OOP",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "05",
+    title: "Pharmacy Inventory Tracker",
+    type: "PYTHON PROJECT",
+    description:
+      "An inventory management project using dictionaries and file handling to manage pharmacy products and inventory information.",
+    technologies: "Python • Dictionaries • File Handling",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "06",
+    title: "Ethio Telecom Website",
+    type: "WEBSITE",
+    description:
+      "A responsive website project created to practice HTML structure, CSS styling, navigation, layouts, and responsive web design.",
+    technologies: "HTML • CSS",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "07",
+    title: "Optimizing Signal-to-Noise Ratio Using Adaptive Filters",
+    type: "ENGINEERING PROJECT",
+    description:
+      "An Electrical and Computer Engineering graduation project focused on adaptive filtering techniques for improving signal quality and signal-to-noise ratio.",
+    technologies: "MATLAB • Signal Processing • Adaptive Filtering",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
 ];
 
 export default function Projects() {
   return (
-    <>
-      <header className="header">
-        <div className="logo">Getu.</div>
+    <main className="projects-page">
 
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
-        </nav>
-      </header>
+      <section className="projects-hero">
+        <p className="section-label">MY WORK</p>
 
-      <main className="page">
-        <p className="small-title">MY WORK</p>
+        <h1>
+          Projects I have
+          <br />
+          built and worked on.
+        </h1>
 
-        <h1 className="page-title">Projects</h1>
-
-        <p className="page-intro">
-          Here are some of the projects I have worked on while developing my
-          software development and engineering skills.
+        <p className="projects-intro">
+          A collection of software, web development, quality assurance,
+          programming, and engineering projects.
         </p>
+      </section>
 
-        <section className="project-section">
-          <p className="project-label">01 — WEB APPLICATION</p>
+      <section className="projects-list">
 
-          <h2>Addis Eats</h2>
+        {projects.map((project) => (
+          <article className="project-card" key={project.number}>
 
-          <p className="project-description">
-            A food ordering web application built for customers and
-            administrators. The application includes menu browsing, dish
-            details, favorites, shopping cart, checkout, orders, and an admin
-            dashboard.
-          </p>
+            <div className="project-number">
+              {project.number}
+            </div>
 
-          <div className="project-gallery">
-            {addisEatsImages.map((image, index) => (
-              <img
-                key={image}
-                src={image}
-                alt={`Addis Eats screenshot ${index + 1}`}
-              />
-            ))}
-          </div>
+            <div className="project-info">
 
-          <p className="project-tech">
-            Technologies: React, JavaScript, HTML, CSS
-          </p> <a
-  href="https://addis-eats-react-red.vercel.app/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-link"
->
-  View Addis Eats Live →
-</a>
+              <p className="project-type">
+                {project.type}
+              </p>
 
-        </section>
+              <h2>{project.title}</h2>
 
-        <section className="project-section">
-          <p className="project-label">02 — WEBSITE</p>
+              <p className="project-description">
+                {project.description}
+              </p>
 
-          <h2>Ethio Telecom Website</h2>
+              <p className="project-technologies">
+                {project.technologies}
+              </p>
 
-          <p className="project-description">
-            A responsive website project created to practice HTML and CSS,
-            focusing on page structure, navigation, layouts, and responsive
-            design.
-          </p>
+              <div className="project-links">
 
-          <div className="project-gallery">
-            {ethioTelecomImages.map((image, index) => (
-              <img
-                key={image}
-                src={image}
-                alt={`Ethio Telecom screenshot ${index + 1}`}
-              />
-            ))}
-          </div>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo ↗
+                  </a>
+                )}
 
-          <p className="project-tech">
-            Technologies: HTML, CSS
-          </p>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub ↗
+                </a>
 
-        </section>
+              </div>
 
-        <section className="project-section">
-          <p className="project-label">03 — ENGINEERING THESIS</p>
+            </div>
 
-          <h2>Optimizing Signal-to-Noise Ratio Using Adaptive Filters</h2>
+          </article>
+        ))}
 
-          <p className="project-description">
-            My Electrical Engineering graduation project focused on adaptive
-            filtering techniques for improving signal quality and optimizing
-            signal-to-noise ratio.
-          </p>
+      </section>
 
-          <div className="project-gallery">
-            {adaptiveFilterImages.map((image, index) => (
-              <img
-                key={image}
-                src={image}
-                alt={`Adaptive filter project image ${index + 1}`}
-              />
-            ))}
-          </div>
+      <section className="projects-cta">
 
-          <p className="project-tech">
-            Technologies: MATLAB, Signal Processing, Adaptive Filtering
-          </p>
+        <p className="section-label">NEXT</p>
 
-         
-        </section>
-      </main>
+        <h2>Want to know more about me?</h2>
 
-      <footer className="footer">
-        <h3>Getu Tesfaye</h3>
-        <p>Software & QA Engineer</p>
-        <p>© 2026 Getu Tesfaye. All rights reserved.</p>
-      </footer>
-    </>
+        <Link href="/experience" className="primary-button">
+          View My Experience →
+        </Link>
+
+      </section>
+
+    </main>
   );
 }
