@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const addisEatsImages = [
-  "/images/home.png",
-  "/images/menu1.png",
-  "/images/menu.png",
-  "/images/cart.png",
-  "/images/home1.png",
+  "/images/landing page.png",
+  "/images/memu second page.png",
+  "/images/menu third page.png",
+  "/images/login.png",
+  "/images/my favorites.png",
   "/images/add.png",
   "/images/edit.png",
   "/images/cart.png",
@@ -72,7 +72,15 @@ export default function Projects() {
 
           <p className="project-tech">
             Technologies: React, JavaScript, HTML, CSS
-          </p>
+          </p> <a
+  href="https://addis-eats-react-red.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-link"
+>
+  View Addis Eats Live →
+</a>
+
         </section>
 
         <section className="project-section">
@@ -99,6 +107,7 @@ export default function Projects() {
           <p className="project-tech">
             Technologies: HTML, CSS
           </p>
+
         </section>
 
         <section className="project-section">

@@ -23,7 +23,7 @@ export default function About() {
           <h2>Who I Am</h2>
 
           <p>
-            I am Getu Tesfaye, an Electrical Engineering graduate currently
+            I am Getu Tesfaye, an Electrical and computer Engineering graduate currently
             developing my career in software development and quality
             assurance.
           </p>
@@ -49,7 +49,7 @@ export default function About() {
             <h2>Bachelor's Degree in Electrical and computer Engineering</h2>
 
             <p>
-               Science and Technology University
+               Mekelle University
             </p>
 
             <h3>Graduation Project</h3>

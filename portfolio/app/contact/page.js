@@ -46,11 +46,11 @@ export default function Contact() {
             <strong>GitHub</strong>
 
             <a
-              href="https://github.com/IBT-Qiyas-Full-Stack-Academy/sq2-getu-tesfaye.git"
+              href="https://github.com/Getu-Tesfaye"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://github.com/IBT-Qiyas-Full-Stack-Academy/sq2-getu-tesfaye.git
+              github.com/Getu-Tesfaye
             </a>
           </div>
 

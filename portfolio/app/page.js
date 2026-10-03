@@ -26,7 +26,7 @@ export default function Home() {
             <h2>Software & QA Engineer</h2>
 
             <p className="hero-description">
-              Electrical Engineering graduate transitioning into software
+              Electrical and computer Engineering  graduate transitioning into software
               development and quality assurance. I enjoy building web
               applications, solving problems, and creating reliable software.
             </p>
@@ -39,11 +39,15 @@ export default function Home() {
               <Link href="/contact" className="btn btn-light">
                 Contact Me
               </Link>
+
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="btn">
+               View My CV
+               </a>
             </div>
 
             <div className="social-links">
               <a
-                href="https://github.com/Getu-Tesfaye/Getu"
+                href="https://github.com/Getu-Tesfaye"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -106,7 +110,7 @@ export default function Home() {
           <div>
             <p className="small-title">MY BACKGROUND</p>
 
-            <h2>From Electrical Engineering to Software</h2>
+            <h2> Electrical and computer Engineering and  Software Development</h2>
 
             <p>
               My engineering background taught me analytical thinking,
