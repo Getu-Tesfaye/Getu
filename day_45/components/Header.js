@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -8,24 +9,24 @@ export default function Header() {
 
   useEffect(() => {
     function updateCart() {
-      const savedCart = localStorage.getItem("addis-eats-cart");
+      try {
+        const savedCart = localStorage.getItem("addis-eats-cart");
+        const cart = savedCart ? JSON.parse(savedCart) : [];
 
-      if (savedCart) {
-        const cart = JSON.parse(savedCart);
-
-        const count = cart.reduce(
-          (total, item) => total + item.quantity,
-          0
-        );
+        const count = Array.isArray(cart)
+          ? cart.reduce(
+              (total, item) => total + Number(item.quantity || 0),
+              0
+            )
+          : 0;
 
         setCartCount(count);
-      } else {
+      } catch {
         setCartCount(0);
       }
     }
 
     updateCart();
-
     window.addEventListener("cart-updated", updateCart);
 
     return () => {
@@ -35,12 +36,10 @@ export default function Header() {
 
   return (
     <header className="header">
-      {/* LEFT */}
       <div className="header-logo">
-        <Link href="/"> Addis Eats</Link>
+        <Link href="/">Addis Eats</Link>
       </div>
 
-      {/* CENTER */}
       <nav className="header-nav">
         <Link href="/">Home</Link>
         <Link href="/menu">Menu</Link>
@@ -53,11 +52,12 @@ export default function Header() {
         </Link>
 
         <Link href="/orders">Orders</Link>
+        <Link href="/checkout">Checkout</Link>
       </nav>
 
-      {/* right */}
       <div className="header-admin">
-        <Link href="/login">admin</Link>
+        <Link href="/login">Admin</Link>
+        <Link href="/customer-signup">Sign Up</Link>
       </div>
     </header>
   );

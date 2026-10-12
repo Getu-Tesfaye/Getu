@@ -3,7 +3,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getDishes } from "../data/dishes";
+import { createClient } from "../lib/supabase/server";
 
 export async function handleAppAction(prevState, formData) {
   const intent = formData.get("intent");
@@ -59,6 +59,23 @@ export async function handleAppAction(prevState, formData) {
 
   // CUSTOMER ORDER
   if (intent === "order") {
+    const supabase = await createClient();
+
+    // Check the Supabase customer session
+    const {
+      data: { claims },
+      error: authError,
+    } = await supabase.auth.getClaims();
+
+    if (authError || !claims?.sub) {
+      return {
+        success: false,
+        message: "Please sign in before placing an order.",
+        total: 0,
+      };
+    }
+
+    // Read customer information
     const name = String(
       formData.get("name") || ""
     ).trim();
@@ -75,15 +92,12 @@ export async function handleAppAction(prevState, formData) {
       formData.get("payment") || ""
     ).trim();
 
-    const cartString = String(
-      formData.get("cart") || "[]"
-    );
-
     // Validate customer information
-    if (!name) {
+    if (!name || !area) {
       return {
         success: false,
-        message: "Name is required.",
+        message: "Name and delivery area are required.",
+        total: 0,
       };
     }
 
@@ -91,35 +105,30 @@ export async function handleAppAction(prevState, formData) {
       return {
         success: false,
         message: "Phone number must contain exactly 10 digits.",
+        total: 0,
       };
     }
 
-    if (!area) {
-      return {
-        success: false,
-        message: "Delivery area is required.",
-      };
-    }
-
-    if (
-      payment !== "TeleBirr" &&
-      payment !== "Cash"
-    ) {
+    if (!["TeleBirr", "Cash"].includes(payment)) {
       return {
         success: false,
         message: "Please select a valid payment method.",
+        total: 0,
       };
     }
 
-    // Read the cart safely
+    // Read and validate the cart
     let cart;
 
     try {
-      cart = JSON.parse(cartString);
+      cart = JSON.parse(
+        String(formData.get("cart") || "[]")
+      );
     } catch {
       return {
         success: false,
         message: "Invalid cart data.",
+        total: 0,
       };
     }
 
@@ -127,51 +136,77 @@ export async function handleAppAction(prevState, formData) {
       return {
         success: false,
         message: "Your cart is empty.",
+        total: 0,
       };
     }
 
-    // Get trusted dish information from the server
-    const dishes = await getDishes();
+    const validCart = [];
 
-    let total = 0;
-
-    // Validate every item and calculate the total
     for (const item of cart) {
+      const id = String(item?.id || "");
+      const quantity = Number(item?.quantity);
+
       if (
-        !item ||
-        typeof item.id !== "string" ||
-        !/^\d+$/.test(item.id) ||
-        !Number.isInteger(Number(item.quantity)) ||
-        Number(item.quantity) <= 0
+        !id ||
+        !Number.isInteger(quantity) ||
+        quantity < 1 ||
+        quantity > 99
       ) {
         return {
           success: false,
-          message: "Invalid cart item.",
+          message: "Your cart contains an invalid item or quantity.",
+          total: 0,
         };
       }
 
-      const serverDish = dishes.find(
-        (dish) => dish.id === item.id
-      );
-
-      if (!serverDish) {
-        return {
-          success: false,
-          message: "One of the selected dishes is invalid.",
-        };
-      }
-
-      const quantity = Number(item.quantity);
-
-      total += serverDish.price * quantity;
+      validCart.push({ id, quantity });
     }
 
-    // Return successful order information
+    // Ask Supabase to create the order securely
+    const { data, error } = await supabase.rpc(
+      "create_customer_order",
+      {
+        p_customer_name: name,
+        p_phone: phone,
+        p_delivery_area: area,
+        p_payment_method: payment,
+        p_cart: validCart,
+      }
+    );
+
+    if (error) {
+      console.error(
+        "Order creation failed:",
+        error.message
+      );
+
+      return {
+        success: false,
+        message: "We could not save your order. Please try again.",
+        total: 0,
+      };
+    }
+
+    if (
+      !data ||
+      data.success !== true ||
+      !data.order_id ||
+      !Number.isFinite(Number(data.total))
+    ) {
+      return {
+        success: false,
+        message: "The database returned an unexpected response.",
+        total: 0,
+      };
+    }
+
+    // Return the saved order information
     return {
       success: true,
-      message: `Thank you ${name}! Your order has been received.`,
+      message: `Thank you ${name}! Your order has been saved.`,
       customerName: name,
-      total,
+      total: Number(data.total),
+      orderId: data.order_id,
     };
   }
 

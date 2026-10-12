@@ -1,9 +1,18 @@
+
 import { NextResponse } from "next/server";
 import { fetchAllDishes } from "@/services/dishServices";
 
 export async function GET() {
-  const dishes = await fetchAllDishes();
-  
+  try {
+    const dishes = await fetchAllDishes();
 
-  return NextResponse.json(dishes);
+    return NextResponse.json(dishes);
+  } catch (error) {
+    console.error("Failed to load dishes:", error);
+
+    return NextResponse.json(
+      { error: "Failed to load dishes" },
+      { status: 500 }
+    );
+  }
 }

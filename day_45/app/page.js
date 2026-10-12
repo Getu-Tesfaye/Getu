@@ -29,10 +29,10 @@ export default async function HomePage() {
 
         <div className="hero-image">
           <Image
-            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80"
+            src="/images/landing1.jpg"
             alt="Delicious food"
-            width={1200}
-            height={800}
+            width={800}
+            height={400}
             priority
           />
         </div>

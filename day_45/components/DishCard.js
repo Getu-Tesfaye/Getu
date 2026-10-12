@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import Image from "next/image";
 import AddToCartButton from "./AddToCartButton";
@@ -5,19 +6,18 @@ import AddToCartButton from "./AddToCartButton";
 export default function DishCard({ dish }) {
   return (
     <div className="dish-card">
-
       <Link href={`/menu/${dish.id}`}>
         <Image
           src={dish.image}
           alt={dish.name}
-          width={900}
-          height={600}
+          width={400}
+          height={300}
           className="dish-card-image"
+          loading="lazy"
         />
       </Link>
 
       <div className="dish-card-content">
-
         <h2>{dish.name}</h2>
 
         <p>{dish.description}</p>
@@ -26,8 +26,9 @@ export default function DishCard({ dish }) {
           {dish.price} ETB
         </p>
 
-        <AddToCartButton dish={dish} />
-
+        {dish.is_available && (
+          <AddToCartButton dish={dish} />
+        )}
       </div>
     </div>
   );

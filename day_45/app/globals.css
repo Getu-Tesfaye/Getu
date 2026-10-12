@@ -1,3 +1,5 @@
+
+
 * {
   box-sizing: border-box;
 }
@@ -198,7 +200,7 @@ button {
 }
 
 .hero {
-  min-height: 550px;
+  min-height: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -336,7 +338,7 @@ button {
 
 .dish-card-image {
   width: 100%;
-  height: 210px;
+  height: 200px;
 
   object-fit: cover;
 
@@ -883,5 +885,75 @@ button {
 
   .dish-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* PAGE NAVIGATION LOADING SKELETON */
+
+.loading-skeleton {
+  padding: 60px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skeleton-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.skeleton-image,
+.skeleton-line,
+.skeleton-button {
+  background: #e5e5e5;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+}
+
+.skeleton-card .dish-card-content {
+  padding: 20px;
+}
+
+.skeleton-line {
+  height: 14px;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
+}
+
+.skeleton-title {
+  width: 65%;
+  height: 20px;
+}
+
+.skeleton-price {
+  width: 35%;
+}
+
+.skeleton-button {
+  height: 38px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-image,
+  .skeleton-line,
+  .skeleton-button {
+    animation: none;
   }
 }

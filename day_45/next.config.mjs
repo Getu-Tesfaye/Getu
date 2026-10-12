@@ -29,6 +29,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "files.cdn-files-a.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.habeshabiz.com",
+        pathname: "/assets/**",
+      },
     ],
   },
 };

@@ -2,129 +2,124 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createClient } from "../lib/supabase/client";
 
 export default function OrdersClient() {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
-    function loadOrders() {
-      try {
-        const savedOrders = localStorage.getItem(
-          "addis-eats-orders"
-        );
+    let active = true;
 
-        setOrders(savedOrders ? JSON.parse(savedOrders) : []);
-      } catch {
-        setOrders([]);
+    async function loadOrders() {
+      const supabase = createClient();
+
+      const {
+        data: { user },
+        error: authError,
+      } = await supabase.auth.getUser();
+
+      if (authError || !user) {
+        if (active) {
+          setMessage("Please sign in to view your orders.");
+          setLoading(false);
+        }
+        return;
       }
+
+      const { data, error } = await supabase
+        .from("orders")
+        .select(`
+          id,
+          status,
+          total,
+          payment_method,
+          customer_name,
+          delivery_area,
+          created_at,
+          order_items (
+            id,
+            dish_name,
+            quantity,
+            unit_price
+          )
+        `)
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+
+      if (!active) return;
+
+      if (error) {
+        console.error("Could not load orders:", error.message);
+        setMessage("Could not load your orders. Please try again.");
+      } else {
+        setOrders(data || []);
+      }
+
+      setLoading(false);
     }
 
     loadOrders();
 
-    // Poll every 5 seconds
-    const intervalId = setInterval(loadOrders, 5000);
-
-    return () => clearInterval(intervalId);
+    return () => {
+      active = false;
+    };
   }, []);
 
-  // Automatically update order status
-  useEffect(() => {
-    const timerId = setInterval(() => {
-      const savedOrders = localStorage.getItem(
-        "addis-eats-orders"
-      );
-
-      if (!savedOrders) return;
-
-      const currentOrders = JSON.parse(savedOrders);
-
-      const updatedOrders = currentOrders.map((order) => {
-        const orderAge = Date.now() - Number(order.id);
-
-        if (orderAge >= 10000 && order.status === "Preparing") {
-          return { ...order, status: "Delivered" };
-        }
-
-        if (orderAge >= 5000 && order.status === "Pending") {
-          return { ...order, status: "Preparing" };
-        }
-
-        return order;
-      });
-
-      localStorage.setItem(
-        "addis-eats-orders",
-        JSON.stringify(updatedOrders)
-      );
-
-      setOrders(updatedOrders);
-    }, 1000);
-
-    return () => clearInterval(timerId);
-  }, []);
-
-  function changeStatus(orderId, newStatus) {
-    const updatedOrders = orders.map((order) =>
-      order.id === orderId
-        ? { ...order, status: newStatus }
-        : order
-    );
-
-    localStorage.setItem(
-      "addis-eats-orders",
-      JSON.stringify(updatedOrders)
-    );
-
-    setOrders(updatedOrders);
+  if (loading) {
+    return <p>Loading your orders...</p>;
   }
 
-  function clearOrders() {
-    localStorage.removeItem("addis-eats-orders");
-    setOrders([]);
+  if (message) {
+    return <p className="form-error">{message}</p>;
   }
 
   if (orders.length === 0) {
     return (
-      <div className="empty">
-        <h2>No orders yet.</h2>
+      <div className="success-box">
+        <h2>No orders yet</h2>
+        <p>Your completed checkout orders will appear here.</p>
+        <a href="/menu" className="button">
+          Browse Menu
+        </a>
       </div>
     );
   }
 
   return (
-    <div>
-      <div className="orders-list">
-        {orders.map((order) => (
-          <div className="order-card" key={order.id}>
-            <h3>Order #{order.id}</h3>
-            <p>Customer: {order.customerName}</p>
-            <p>
-              Total: <strong>{order.total} ETB</strong>
-            </p>
-            <p>Status: {order.status}</p>
+    <div className="orders-list">
+      {orders.map((order) => (
+        <article className="success-box" key={order.id}>
+          <h2>Order #{order.id.slice(0, 8)}</h2>
 
-            <label>
-              Change status:{" "}
-              <select
-                value={order.status}
-                onChange={(event) =>
-                  changeStatus(order.id, event.target.value)
-                }
-              >
-                <option value="Pending">Pending</option>
-                <option value="Preparing">Preparing</option>
-                <option value="Delivered">Delivered</option>
-              </select>
-            </label>
+          <p>
+            Status: <strong>{order.status}</strong>
+          </p>
 
-            <p>Date: {order.date}</p>
-          </div>
-        ))}
-      </div>
+          <p>
+            Total: <strong>{Number(order.total).toFixed(2)} ETB</strong>
+          </p>
 
-      <button onClick={clearOrders} className="delete-button">
-        Clear Orders
-      </button>
+          <p>Payment: {order.payment_method || "Not specified"}</p>
+          <p>Delivery area: {order.delivery_area || "Not specified"}</p>
+          <p>
+            Date:{" "}
+            {new Date(order.created_at).toLocaleString()}
+          </p>
+
+          <h3>Items</h3>
+
+          <ul>
+            {(order.order_items || []).map((item) => (
+              <li key={item.id}>
+                {item.dish_name} × {item.quantity} —{" "}
+                {(Number(item.unit_price) * item.quantity).toFixed(2)} ETB
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
     </div>
   );
 }
