@@ -1,7 +1,0 @@
-Addis Eats source correction notes
-
-This archive is based on the uploaded lib(1).zip and includes readability/theme CSS fixes.
-The uploaded archive did not include package.json, next.config.*, or .env.local, so it is not a standalone runnable full-project ZIP.
-Do not share .env.local or secret service-role keys publicly.
-The dashboard and admin orders pages in the supplied source still use browser localStorage rather than Supabase orders.
-The admin menu Edit/Delete buttons are currently presentation-only; they do not have handlers.
