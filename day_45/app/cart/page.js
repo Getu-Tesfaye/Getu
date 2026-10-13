@@ -9,6 +9,7 @@ export default function CartPage() {
 
         <p>Review your selected dishes.</p>
       </div>
+      
 
       <CartClient />
 

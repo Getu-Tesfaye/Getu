@@ -23,6 +23,17 @@ export default function MenuClient({ selectedCategory = "All" }) {
 
     const dishesPerPage = 4;
 
+    const categories = [
+        "All",
+        "Dinner",
+        "Breakfast",
+        "Special",
+        "Drinks",
+        "Habesha",
+        "Traditional",
+    ];
+
+    // Debounce search input by 500 milliseconds
     useEffect(() => {
         const timer = setTimeout(() => {
             setDebouncedSearch(search);
@@ -31,11 +42,12 @@ export default function MenuClient({ selectedCategory = "All" }) {
         return () => clearTimeout(timer);
     }, [search]);
 
-    // Reset to page 1 when the search or category changes
+    // Reset pagination when search or category changes
     useEffect(() => {
         setCurrentPage(1);
     }, [debouncedSearch, selectedCategory]);
 
+    // Load dishes from the API with SWR
     const {
         data: dishes,
         error,
@@ -46,8 +58,6 @@ export default function MenuClient({ selectedCategory = "All" }) {
         refreshInterval: 30000,
     });
 
-    const categories = ["All", "Dinner", "Breakfast", "Special", "Drinks", "Habesha", "Traditional"];
-
     if (isLoading) {
         return (
             <div className="page">
@@ -57,9 +67,13 @@ export default function MenuClient({ selectedCategory = "All" }) {
                 </div>
 
                 <div className="dish-grid">
-                    {Array.from({ length: 6 }).map((_, index) => (
-                        <div className="dish-card skeleton-card" key={index}>
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <div
+                            className="dish-card skeleton-card"
+                            key={index}
+                        >
                             <div className="skeleton-image"></div>
+
                             <div className="dish-card-content">
                                 <div className="skeleton-line skeleton-title"></div>
                                 <div className="skeleton-line"></div>
@@ -75,27 +89,40 @@ export default function MenuClient({ selectedCategory = "All" }) {
 
     if (error || !Array.isArray(dishes)) {
         return (
-            <div className="empty">
-                <h2>Could not load the menu.</h2>
-                <p>Please check your connection and try again.</p>
-                <button onClick={() => mutate()}>Try Again</button>
+            <div className="page">
+                <div className="empty">
+                    <h2>Could not load the menu.</h2>
+                    <p>Please check your connection and try again.</p>
+
+                    <button onClick={() => mutate()}>
+                        Try Again
+                    </button>
+                </div>
             </div>
         );
     }
 
+    // Filter dishes by category and search text
     const filteredDishes = dishes.filter((dish) => {
         const matchesCategory =
             selectedCategory.toLowerCase() === "all" ||
-            dish.category?.toLowerCase() === selectedCategory.toLowerCase();
+            dish.category?.trim().toLowerCase() ===
+            selectedCategory.trim().toLowerCase();
 
-        const matchesSearch = (dish.name || "")
-            .toLowerCase()
-            .includes(debouncedSearch.toLowerCase());
+        const searchText = debouncedSearch.trim().toLowerCase();
+
+        const matchesSearch =
+            (dish.name || "").toLowerCase().includes(searchText) ||
+            (dish.description || "").toLowerCase().includes(searchText);
 
         return matchesCategory && matchesSearch;
     });
 
-    const totalPages = Math.ceil(filteredDishes.length / dishesPerPage);
+    // Pagination
+    const totalPages = Math.ceil(
+        filteredDishes.length / dishesPerPage
+    );
+
     const startIndex = (currentPage - 1) * dishesPerPage;
 
     const currentDishes = filteredDishes.slice(
@@ -110,72 +137,90 @@ export default function MenuClient({ selectedCategory = "All" }) {
                 <p>Explore delicious food from Addis Eats.</p>
             </div>
 
-            <div className="search-box">
-                <input
-                    type="text"
-                    placeholder="Search dishes..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
+            {/* Search appears before the category buttons */}
+            <div className="menu-controls">
+                
+                <div className="search-box">
+                    <span className="search-icon" aria-hidden="true">
+                        🔍
+                    </span>
+
+                    <input
+                        type="search"
+                        placeholder="Search dishes..."
+                        aria-label="Search dishes"
+                        value={search}
+                        onChange={(event) => setSearch(event.target.value)}
+                    />
+                </div>
+                
+
+                <div className="category-buttons">
+                    {categories.map((category) => (
+                        <Link
+                            key={category}
+                            href={
+                                category === "All"
+                                    ? "/menu"
+                                    : `/menu?category=${encodeURIComponent(category)}`
+                            }
+                            className={
+                                selectedCategory.toLowerCase() ===
+                                    category.toLowerCase()
+                                    ? "active-category"
+                                    : ""
+                            }
+                        >
+                            {category}
+                        </Link>
+                    ))}
+                </div>
             </div>
 
-            <div className="category-buttons">
-                {categories.map((category) => (
-                    <Link
-                        key={category}
-                        href={
-                            category === "All"
-                                ? "/menu"
-                                : `/menu?category=${category}`
-                        }
-                        className={
-                            selectedCategory.toLowerCase() ===
-                            category.toLowerCase()
-                                ? "active-category"
-                                : ""
-                        }
-                    >
-                        {category}
-                    </Link>
-                ))}
-            </div>
-
+            {/* Menu results */}
             {filteredDishes.length === 0 ? (
                 <div className="empty">
                     <h2>No dishes found.</h2>
-                    <p>Try another category or search for a different dish.</p>
+                    <p>
+                        Try another category or search for a different dish.
+                    </p>
                 </div>
             ) : (
                 <>
                     <div className="dish-grid">
                         {currentDishes.map((dish) => (
-                            <DishCard key={dish.id} dish={dish} />
+                            <DishCard
+                                key={dish.id}
+                                dish={dish}
+                            />
                         ))}
                     </div>
 
-                    <div className="pagination">
-                        <button
-                            disabled={currentPage === 1}
-                            onClick={() =>
-                                setCurrentPage((page) => page - 1)
-                            }
-                        >
-                            Previous
-                        </button>
+                    {totalPages > 1 && (
+                        <div className="pagination">
+                            <button
+                                disabled={currentPage === 1}
+                                onClick={() =>
+                                    setCurrentPage((page) => page - 1)
+                                }
+                            >
+                                Previous
+                            </button>
 
-                        <span>
-                            Page {currentPage} of {totalPages}
-                        </span>
+                            <span>
+                                Page {currentPage} of {totalPages}
+                            </span>
 
-                        <button
-                            disabled={currentPage === totalPages}
-                            onClick={() =>
-                                setCurrentPage((page) => page + 1)
-                            }
-                        >
-                            Next
-                        </button>
-                    </div>
+                            <button
+                                disabled={currentPage === totalPages}
+                                onClick={() =>
+                                    setCurrentPage((page) => page + 1)
+                                }
+                            >
+                                Next
+                            </button>
+                        </div>
+                    )}
                 </>
             )}
         </div>

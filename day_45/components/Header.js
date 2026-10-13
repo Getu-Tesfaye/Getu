@@ -35,30 +35,45 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="header">
-      <div className="header-logo">
-        <Link href="/">Addis Eats</Link>
-      </div>
+    <header className="site-header">
+      <Link href="/" className="brand">
+        <span className="brand-icon">✦</span>
 
-      <nav className="header-nav">
+        <span>
+          <span className="brand-name">Addis Eats</span>
+          <small className="brand-tagline">
+            ETHIOPIAN CUISINE
+          </small>
+        </span>
+      </Link>
+
+      <nav className="main-nav">
         <Link href="/">Home</Link>
-        <Link href="/menu">Menu</Link>
 
-        <Link href="/cart" className="cart-link">
-          Cart
-          {cartCount > 0 && (
-            <span className="cart-count">{cartCount}</span>
-          )}
-        </Link>
+        <Link href="/menu">Our Menu</Link>
 
         <Link href="/orders">Orders</Link>
-        <Link href="/checkout">Checkout</Link>
-      </nav>
 
-      <div className="header-admin">
-        <Link href="/login">Admin</Link>
+        <Link
+  href="/cart"
+  className="cart-link"
+  aria-label={`Cart, ${cartCount} items`}
+>
+  <span className="cart-icon" aria-hidden="true">🛒</span>
+
+  <span className="cart-count">
+    {cartCount}
+  </span>
+</Link>
+
         <Link href="/customer-signup">Sign Up</Link>
-      </div>
+
+        <Link href="/login">Admin Login</Link>
+
+        <Link href="/menu" className="order-button">
+          Order Online →
+        </Link>
+      </nav>
     </header>
   );
 }
