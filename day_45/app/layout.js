@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "Addis Eats",
     images: [
       {
-        url: "/preview.jpg",
+        url: "/images/preview.jpg",
         width: 1200,
         height: 630,
         alt: "Ethiopian food from Addis Eats",
