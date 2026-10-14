@@ -4,7 +4,7 @@ import Image from "next/image";
 import AddToCartButton from "./AddToCartButton";
 import FavoriteButton from "./favoriteButton";
 
-export default function DishCard({ dish }) {
+export default function DishCard({ dish, priority = false }) {
   return (
     <div className="dish-card">
       <div className="dish-card-image-wrapper">
@@ -15,7 +15,7 @@ export default function DishCard({ dish }) {
             width={400}
             height={300}
             className="dish-card-image"
-            loading="lazy"
+            priority={priority}
           />
         </Link>
 

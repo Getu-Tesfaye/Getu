@@ -4,6 +4,36 @@ import { notFound } from "next/navigation";
 import { getDishById } from "../../../data/dishes";
 import AddToCartButton from "../../../components/AddToCartButton";
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const dish = await getDishById(id);
+
+  if (!dish) {
+    return { title: "Dish not found - Addis Eats" };
+  }
+
+  const title = `${dish.name} - Addis Eats`;
+  const description = `${dish.name} – ${dish.price} ETB. ${dish.description}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      siteName: "Addis Eats",
+      images: [
+        {
+          url: dish.image,
+          width: 1200,
+          height: 630,
+          alt: dish.name,
+        },
+      ],
+    },
+  };
+}
+
 export default async function DishDetailPage({ params }) {
   const { id } = await params;
 
