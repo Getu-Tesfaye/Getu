@@ -55,7 +55,7 @@ export default function MenuClient({ selectedCategory = "All" }) {
         mutate,
     } = useSWR("/api/dishes", fetcher, {
         revalidateOnFocus: true,
-        refreshInterval: 30000,
+        refreshInterval: 5000,
     });
 
     if (isLoading) {

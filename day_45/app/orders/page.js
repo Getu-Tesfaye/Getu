@@ -1,9 +1,11 @@
-
+import { connection } from "next/server";
+import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import OrdersClient from "../../components/OrdersClient";
 
-export default async function OrdersPage() {
+async function OrdersContent() {
+   await connection();
   const supabase = await createClient();
 
   const { data, error } = await supabase.auth.getClaims();
@@ -15,6 +17,10 @@ export default async function OrdersPage() {
     );
   }
 
+  return <OrdersClient />;
+}
+
+export default function OrdersPage() {
   return (
     <div className="page">
       <div className="page-heading">
@@ -22,7 +28,9 @@ export default async function OrdersPage() {
         <p>View your recent orders.</p>
       </div>
 
-      <OrdersClient />
+      <Suspense fallback={<p>Loading your orders...</p>}>
+        <OrdersContent />
+      </Suspense>
     </div>
   );
 }

@@ -8,6 +8,11 @@ export default function OrdersClient() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -105,7 +110,9 @@ export default function OrdersClient() {
           <p>Delivery area: {order.delivery_area || "Not specified"}</p>
           <p>
             Date:{" "}
-            {new Date(order.created_at).toLocaleString()}
+            {mounted
+              ? new Date(order.created_at).toLocaleString()
+              : "Loading date..."}
           </p>
 
           <h3>Items</h3>

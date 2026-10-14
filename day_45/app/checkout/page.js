@@ -1,13 +1,14 @@
-
+import { Suspense } from "react";
+import { connection } from "next/server";
 import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import CheckoutForm from "../../components/CheckoutForm";
 
-export default async function CheckoutPage() {
-
+async function CheckoutContent() {
+  await connection();
   const supabase = await createClient();
 
-  const { data, error, } = await supabase.auth.getClaims();
+  const { data, error } = await supabase.auth.getClaims();
   const claims = data?.claims;
 
   if (error || !claims?.sub) {
@@ -16,6 +17,10 @@ export default async function CheckoutPage() {
     );
   }
 
+  return <CheckoutForm />;
+}
+
+export default function CheckoutPage() {
   return (
     <div className="page narrow-page">
       <div className="page-heading">
@@ -23,7 +28,9 @@ export default async function CheckoutPage() {
         <p>Enter your delivery information.</p>
       </div>
 
-      <CheckoutForm />
+      <Suspense fallback={<p>Loading checkout...</p>}>
+        <CheckoutContent />
+      </Suspense>
     </div>
   );
 }
