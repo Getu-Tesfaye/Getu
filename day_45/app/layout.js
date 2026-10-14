@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import AutoLogout from "../components/AutoLogout";
 
 export const metadata = {
-  metadataBase: new URL("https://addis-eats-next-advanced-projects-ten.vercel.app"),
+  metadataBase: new URL("https://addis-eats-next-advanced-project-ten.vercel.app"),
   title: "Ethiopian Food Delivery in Addis Ababa · Addis Eats",
   description:
     "Order Ethiopian dishes, fresh injera, and traditional wots delivered across Addis Ababa.",
