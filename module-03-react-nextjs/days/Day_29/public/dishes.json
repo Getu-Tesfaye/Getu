@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Doro Wat", "price": 18.5, "category": "Mains", "spicy": true },
+  { "id": 2, "name": "Shiro Tegabino", "price": 14.0, "category": "Mains", "spicy": false },
+  { "id": 3, "name": "kitfo", "price": 5.0, "category": "Starters", "spicy": false },
+  { "id": 4, "name": "Tej", "price": 7.0, "category": "Drinks", "spicy": false }
+]

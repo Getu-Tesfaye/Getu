@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+h1 {
+  color: #222;
+}
+
+ul#list {
+  list-style: none;
+  padding: 0;
+}
+
+ul#list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Applied to the <ul> while data is loading */
+.loading li,
+.loading {
+  color: #888;
+  font-style: italic;
+}
+
+/* Applied when the fetch fails */
+.error {
+  color: #b00020;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+}

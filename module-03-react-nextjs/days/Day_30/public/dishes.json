@@ -1,0 +1,9 @@
+[
+    {"id": 1, "name": "collection", "price": 250, "category": "Traditional", "spicy": "true" },
+    {"id": 2, "name": "doro wat", "price": 450, "category": "traditional", "spicy": "false"},
+    {"id": 3, "name": "kitfo", "price": 500, "category": "traditional", "sicy": "true"},
+    {"id": 4, "name": "shiro Tegabino", "price": 300, "category": "vegeterian", "spicy": "false"},
+    {"id": 5, "name": "tibs", "price": 750, "category": "traditional", "spicy": "true"}
+
+
+]

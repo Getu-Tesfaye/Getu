@@ -1,0 +1,39 @@
+ [
+    
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "description": "Spicy Ethiopian chicken stew with berbere, served with injera",
+    "price": 350,
+    "category": "Special",
+    "image": "/images/DORO.jpg",
+    "ingredients": ["Chicken", "Berbere", "Onions", "Injera", "Garlic", "Ginger"]
+  },
+  {
+    "id": 2,
+    "name": "Tibs",
+    "description": "Sautéed beef or lamb with peppers, onions, and rosemary",
+    "price": 320,
+    "category": "All",
+    "image": "/images/TIBSS.jpg",
+    "ingredients": ["Beef", "Bell Peppers", "Onions", "Rosemary", "Butter", "Injera"]
+  },
+  {
+    "id": 3,
+    "name": "Shiro Wat",
+    "description": "Creamy chickpea stew seasoned with berbere and spices",
+    "price": 180,
+    "category": "Special",
+    "image": "/images/SHIRO.jpg",
+    "ingredients": ["Chickpea Flour", "Berbere", "Garlic", "Onions", "Injera"]
+  },
+  {
+    "id": 4,
+    "name": "Kitfo",
+    "description": "Minced raw beef seasoned with mitmita and niter kibbeh",
+    "price": 400,
+    "category": "Special",
+    "image": "/images/kitfo.jpg",
+    "ingredients": ["Beef", "Mitmita", "Niter Kibbeh", "Injera", "Cottage Cheese"]
+  }
+]

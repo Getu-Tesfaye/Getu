@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    .field { margin-bottom: 12px; }
+    label { display: block; margin-bottom: 4px; }
+    #error { color: red; margin-bottom: 12px; }
+    #signup-count { margin-top: 16px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>Validated & Persistent Signup Form</h2>
+
+  <form id="signupForm">
+    <div class="field">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" placeholder="Enter your full name">
+    </div>
+
+    <div class="field">
+      <label for="phone">Ethiopian Phone Number:</label>
+      <input type="text" id="phone" placeholder="09... or +2519...">
+    </div>
+
+    <div id="error"></div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <p id="signup-count"></p>
+
+  <script src="app.js"></script>
+</body>
+</html>

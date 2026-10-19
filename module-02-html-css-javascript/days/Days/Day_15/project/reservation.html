@@ -1,0 +1,90 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Reservation - Habesha Eatery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="index.html" class="logo">Habesha Eatery</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About US</a>
+      <a href="contact.html">Contact</a>
+      <a href="reservation.html" class="reserve-btn active">Reserve</a>
+    </nav>
+  </header>
+
+  <!-- Reservation Section -->
+  <main class="reservation-section">
+    <div class="reservation-card">
+      <h2><i class="fas fa-calendar-check"></i> Book a Table</h2>
+      <p class="reservation-subtitle">Reserve your spot at Habesha Eatery.</p>
+
+      <form class="reservation-form">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" placeholder="Your Full Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+251 ..." required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" min="1" max="20" value="2" required>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Confirm Reservation</button>
+      </form>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <nav class="footer-nav">
+        <a href="about.html" class="active">About Us</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+
+      <div class="footer-logo">
+        <span class="logo-icon">🌿</span>
+        <span class="logo-text">Habesha Eatery</span>
+      </div>
+
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright © 2026 Habesha Eatery.</p>
+      <p>Website designed by Getu.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

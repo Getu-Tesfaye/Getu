@@ -1,0 +1,113 @@
+:root {
+  --primary-color: #657ABE;
+  --secondary-color: #000006;
+  --spacing-unit: 12px 24px;
+  --font-stack: "times new Roman", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.custom-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: var(--spacing-unit);
+  font-family: var(--font-stack);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.card-content-box {
+  box-sizing: content-box;
+  width: 300px;
+  padding: 24px;
+  border: 2px solid #333555;
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+
+.card-border-box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 24px;
+  border: 2px solid #222;
+  background-color: #e0f7fa;
+  margin-bottom: 20px;
+}
+
+
+p {
+  color: red; 
+}
+
+.text-sample {
+  color: green; 
+}
+
+#unique-text {
+  color: blue; 
+}
+
+.flight-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.flight-table th {
+  background-color: #006b3f;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.flight-table td {
+  padding: 12px; 
+  border-bottom: 1px solid #ddd;
+}
+
+/* Zebra striping */
+.flight-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+
+.color-box {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  transition: background-color 0.3s ease;
+}
+
+
+.box-red {
+  background-color: hsl(0, 100%, 50%);
+}
+.box-red:hover {
+  background-color: hsl(0, 100%, 70%); 
+}
+
+
+.box-green {
+  background-color: hsl(120, 100%, 50%);
+}
+.box-green:hover {
+  background-color: hsl(120, 100%, 70%); 
+}
+
+
+.box-blue {
+  background-color: hsl(240, 100%, 50%);
+}
+.box-blue:hover {
+  background-color: hsl(240, 100%, 70%); 
+}

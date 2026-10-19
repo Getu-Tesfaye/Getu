@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Addis Eats</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" aria-label="Admin navigation">
+      <div class="sidebar-brand">
+        <span aria-hidden="true">🍽️</span>
+        <span>Addis Eats</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button type="button" class="nav-item active" data-section="dashboard">Dashboard</button>
+        <button type="button" class="nav-item" data-section="dishes">Menu</button>
+        <button type="button" class="nav-item" data-section="orders">Orders</button>
+      </nav>
+      <button type="button" id="logout-btn" class="nav-item logout">Logout</button>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-header">
+        <h1 id="section-title">Dashboard</h1>
+        <a href="index.html" class="view-site-link" target="_blank">View Site ↗</a>
+      </header>
+
+      <!-- Dashboard Section -->
+      <section id="section-dashboard" class="admin-section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-label">Total Revenue</span>
+            <span class="stat-value" id="stat-revenue">0.00 ETB</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Total Orders</span>
+            <span class="stat-value" id="stat-orders">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Average Order Value</span>
+            <span class="stat-value" id="stat-aov">0.00 ETB</span>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="panel">
+            <h2>Top Selling Dishes</h2>
+            <div id="top-dishes" class="top-dishes-list"></div>
+            <p id="top-dishes-empty" class="empty-msg" hidden>No orders yet.</p>
+          </div>
+          <div class="panel">
+            <h2>Order Status Distribution</h2>
+            <div id="status-chart" class="status-chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dishes Section -->
+      <section id="section-dishes" class="admin-section" hidden>
+        <div class="section-toolbar">
+          <input type="search" id="dish-search" placeholder="Search dishes..." aria-label="Search dishes">
+          <button type="button" id="add-dish-btn" class="btn btn-primary">+ Add Dish</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" aria-label="All dishes">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dishes-table-body"></tbody>
+          </table>
+          <p id="dishes-empty" class="empty-msg" hidden>No dishes found.</p>
+        </div>
+      </section>
+
+      <!-- Orders Section -->
+      <section id="section-orders" class="admin-section" hidden>
+        <div class="table-wrap">
+          <table class="data-table" aria-label="All orders">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="orders-table-body"></tbody>
+          </table>
+          <p id="orders-empty" class="empty-msg" hidden>No orders yet.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Dish Form Modal -->
+  <div id="dish-form-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="dish-form-title" hidden>
+    <div class="modal-backdrop" data-close-dish-form></div>
+    <div class="modal-content">
+      <button type="button" class="modal-close" data-close-dish-form aria-label="Close">&times;</button>
+      <h2 id="dish-form-title">Add New Dish</h2>
+      <form id="dish-form">
+        <input type="hidden" id="dish-id">
+        <div class="form-group">
+          <label for="dish-name">Name</label>
+          <input type="text" id="dish-name" required>
+        </div>
+        <div class="form-group">
+          <label for="dish-description">Description</label>
+          <textarea id="dish-description" rows="2" required></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dish-price">Price (ETB)</label>
+            <input type="number" id="dish-price" min="1" required>
+          </div>
+          <div class="form-group">
+            <label for="dish-category">Category</label>
+            <select id="dish-category" required>
+              <option value="ethiopian">Ethiopian</option>
+              <option value="pizza">Pizza</option>
+              <option value="burgers">Burgers</option>
+              <option value="drinks">Drinks</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dish-image">Image Path</label>
+          <input type="text" id="dish-image" placeholder="images/dish-name.jpg" required>
+        </div>
+        <div class="form-group">
+          <label for="dish-ingredients">Ingredients (comma-separated)</label>
+          <input type="text" id="dish-ingredients" placeholder="Chicken, Berbere, Onions" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Save Dish</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Detail Modal -->
+  <div id="order-detail-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="order-detail-title" hidden>
+    <div class="modal-backdrop" data-close-order-detail></div>
+    <div class="modal-content">
+      <button type="button" class="modal-close" data-close-order-detail aria-label="Close">&times;</button>
+      <h2 id="order-detail-title">Order Details</h2>
+      <div id="order-detail-content"></div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="confirm-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title" hidden>
+    <div class="modal-backdrop" data-close-confirm></div>
+    <div class="modal-content confirm-dialog">
+      <h2 id="confirm-title">Confirm Delete</h2>
+      <p id="confirm-message"></p>
+      <div class="confirm-actions">
+        <button type="button" class="btn btn-secondary" data-close-confirm>Cancel</button>
+        <button type="button" id="confirm-delete-btn" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

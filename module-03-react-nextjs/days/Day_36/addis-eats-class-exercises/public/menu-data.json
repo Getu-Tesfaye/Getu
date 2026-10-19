@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "price": 350,
+    "description": "Traditional Ethiopian chicken stew",
+    "category": "Special",
+    "image": "/images/DORO.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Kitfo",
+    "price": 400,
+    "description": "Seasoned minced beef Ethiopian dish",
+    "category": "Special",
+    "image": "/images/kitfo.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Shiro",
+    "price": 250,
+    "description": "Delicious Ethiopian chickpea stew",
+    "category": "Special",
+    "image": "/images/SHIRO.jpg"
+  }
+]

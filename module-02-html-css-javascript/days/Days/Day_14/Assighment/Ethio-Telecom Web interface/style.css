@@ -1,0 +1,732 @@
+:root {
+  --primary-green: #8CC63F;
+  --primary-blue: #0072CE;
+  --dark-blue: #0b3c5d;
+  --bg-dark: #1E252B;
+  --bg-darker: #151A1E;
+  --text-muted: #A0AEC0;
+  --border-color: #2D3748;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #333;
+}
+
+/* 1. NAVIGATION BAR */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--primary-green);
+}
+
+.logo-crop {
+  width: 55px;         /* Shows only the left symbol width */
+  height: 45px;        /* Limits to logo height */
+  overflow: hidden;    /* Cuts off the text on the right */
+  display: inline-block;
+}
+
+.logo-crop img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: left center; /* Keeps only the left side */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-green);
+}
+
+/* main */
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 2. HERO SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #0b3c5d, #0072CE);
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(11, 60, 93, 0.8), rgba(0, 0, 0, 0.5));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 40px;
+  width: 100%;
+  text-align: left;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+  font-size: 18px;
+  max-width: 650px;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* HERO TEXT TYPOGRAPHY & BADGE */
+.hero-badge {
+  display: inline-block;
+  background: rgba(140, 198, 63, 0.2);
+  color: #8CC63F;
+  border: 1px solid rgba(140, 198, 63, 0.4);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  backdrop-filter: blur(4px);
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.hero-content .text-highlight {
+  background: linear-gradient(90deg, #8CC63F 0%, #00d2ff 100%);
+  
+  /* Required order & prefix for gradient text clipping */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback for browsers */
+  
+  display: inline-block;
+}
+
+
+
+
+/* QUICK LINKS SIDEBAR STYLING =================================*/
+.quick-links-sidebar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  height: fit-content;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-title {
+  font-size: 13px;
+  color: #0b3c5d;
+  font-weight: 500;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.quick-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-links-list li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.quick-links-list li a:hover {
+  background-color: #f0fdf4;
+  color: #8CC63F;
+  transform: translateX(4px);
+}
+
+.quick-links-list .chevron {
+  font-size: 18px;
+  color: #cbd5e1;
+}
+
+.quick-links-list li a:hover .chevron {
+  color: #8CC63F;
+}
+
+.badge {
+  background-color: #ef4444;
+  color: white;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* Fix layout for Quick Links sidebar list */
+.quick-links-list a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 500px; /* Space between image and text */
+}
+
+/* Force image icon size inside Quick Links */
+.quick-links-list img {
+  width: 400px !important;
+  height: 400px !important;
+  object-fit: cover;
+  border-radius: 8px; /* Optional: rounds image corners slightly */
+  flex-shrink: 0;
+}
+
+/* Push the chevron arrow or HOT badge to the far right side */
+.quick-links-list .chevron,
+.quick-links-list .badge {
+  margin-left: auto;
+}
+
+/* LINKS BANNER CTA */
+.banner-cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+}
+
+/* Eye-Catching Heading */
+.cta-heading {
+  font-size: 38px;             /* Large visible text size */
+  font-weight: 800;             /* Extra bold */
+  color: #1a1a1a;               /* Dark contrast text */
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* High-Attraction Button */
+.cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: #72be44;   /* Ethio Telecom vibrant green */
+  color: #ffffff;               /* High-contrast white text */
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;          /* Smooth pill shape */
+  box-shadow: 0 4px 15px rgba(114, 190, 68, 0.4); /* Glowing accent shadow */
+  transition: all 0.3s ease;
+}
+
+/* Interactive Hover Effect */
+.cta-button:hover {
+  background-color: #5da335;   /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 6px 20px rgba(114, 190, 68, 0.6);
+}
+
+/* Products and services styling===============================================*/
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.section-title {
+  color: #72be44; /* Ethio Telecom Green */
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+/* Grid Layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Card Container */
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image Container */
+.card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card Content Area */
+.card-content {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card-title.default-title {
+  color: #2b2b2b;
+}
+
+.card-title.brand-title {
+  color: #72be44;
+}
+
+.card-description {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* Pill Button */
+.btn-read-more {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 24px;
+  border: 1.5px solid #8cc63f;
+  border-radius: 50px;
+  color: #72be44;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-read-more:hover {
+  background-color: #72be44;
+  color: #ffffff;
+}
+
+/* 3. Popular Digital services styling============================================== */
+.action-hub {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.hub-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.hub-header p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.hub-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-green);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #f0fdf4;
+  color: var(--primary-green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.hub-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 8px;
+}
+
+.hub-card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.hub-btn {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hub-card:hover .hub-btn {
+  color: var(--primary-green);
+}
+
+.hub-card.highlight {
+  background: linear-gradient(135deg, #0072CE, #0b3c5d);
+  color: #ffffff;
+  border: none;
+}
+
+.hub-card.highlight .card-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.hub-card.highlight h3,
+.hub-card.highlight p {
+  color: #ffffff;
+}
+
+.hub-card.highlight .hub-btn {
+  color: var(--primary-green);
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+/*   Featured services Styling ============================================*/
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  color: #0b3c5d;
+  font-weight: 700;
+}
+
+.section-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.grid-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-color: #8CC63F;
+}
+
+.card-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.tag-green { background: #f0fdf4; color: #8CC63F; }
+.tag-blue { background: #eff6ff; color: #0072CE; }
+.tag-gray { background: #f1f5f9; color: #64748b; }
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.grid-card h3 {
+  font-size: 18px;
+  color: #0b3c5d;
+  margin-bottom: 8px;
+}
+
+.grid-card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.card-action {
+  color: #0072CE;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.grid-card:hover .card-action {
+  color: #8CC63F;
+}
+
+/* Featured Telebirr Card */
+.featured-card {
+  background: linear-gradient(135deg, #0072CE, #0b3c5d);
+  color: #ffffff;
+  border: none;
+}
+
+.featured-card h3,
+.featured-card p {
+  color: #ffffff;
+}
+
+.featured-card .card-icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.card-btn {
+  background-color: #8CC63F;
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  width: fit-content;
+  display: inline-block;
+}
+
+/* Mobile responsive layout for small screens */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4.  FOOTER ===============================================*/
+footer {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  padding-top: 50px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.footer-brand .logo {
+  color: var(--primary-green);
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  color: var(--primary-green);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  background-color: var(--bg-darker);
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.bottom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.bottom-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 16px;
+}
+
+.bottom-links a:hover {
+  color: #ffffff;
+}

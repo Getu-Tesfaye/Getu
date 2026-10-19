@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addis Eats — Order Food in Addis Ababa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Addis Eats home">
+        <span class="logo-icon" aria-hidden="true">🍽️</span>
+        <span class="logo-text">Addis Eats</span>
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <button type="button" id="theme-toggle" class="icon-btn" aria-label="Toggle dark or light theme" title="Toggle theme">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+        <button type="button" id="favorites-btn" class="nav-btn" aria-label="View favorites">Favorites</button>
+        <button type="button" id="history-btn" class="nav-btn" aria-label="View order history">Orders</button>
+        <button type="button" id="cart-toggle" class="cart-btn" aria-label="Open shopping cart">
+          <span aria-hidden="true">🛒</span>
+          <span id="cart-badge" class="cart-badge" aria-live="polite">0</span>
+        </button>
+        
+        <a href="admin-login.html" class="admin-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+   <section class="hero-section">
+  
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="images/fruits.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Delicious food, delivered in Addis Ababa</h1>
+    <p>Browse our menu of Special Food classics, pizza, burgers, and drinks.</p>
+  </div>
+</section>
+
+    <section class="menu-section" aria-labelledby="menu-title">
+      <div class="menu-controls">
+        <h2 id="menu-title"> Menu</h2>
+        <div class="search-wrap">
+          <label for="search-input" class="visually-hidden">Search dishes</label>
+          <input type="search" id="search-input" placeholder="Search dishes..." autocomplete="off">
+        </div>
+        <div class="category-filters" role="group" aria-label="Filter by category">
+          <button type="button" class="category-btn active" data-category="all">All</button>
+          <button type="button" class="category-btn" data-category="special">Special</button>
+          <button type="button" class="category-btn" data-category="pizza">Pizza</button>
+          <button type="button" class="category-btn" data-category="burgers">Burgers</button>
+          <button type="button" class="category-btn" data-category="drinks">Drinks</button>
+        </div>
+      </div>
+
+      <div id="loading-indicator" class="loading-indicator" role="status" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading menu...</p>
+      </div>
+
+      <div id="error-message" class="error-banner" role="alert" hidden></div>
+
+      <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+      <div id="menu-empty" class="empty-state" hidden>
+        <p>No dishes match your search. Try a different keyword or category.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dish Detail Modal -->
+  <div id="dish-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="dish-modal-title" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-content dish-detail">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close dish details">&times;</button>
+      <img id="modal-image" src="" alt="" class="modal-image">
+      <h2 id="dish-modal-title"></h2>
+      <p id="modal-category" class="dish-category"></p>
+      <p id="modal-description"></p>
+      <p id="modal-price" class="dish-price"></p>
+      <div id="modal-ingredients" class="ingredients-list"></div>
+      <div class="modal-actions">
+        <button type="button" id="modal-favorite-btn" class="btn btn-secondary">♡ Add to Favorites</button>
+        <button type="button" id="modal-add-cart-btn" class="btn btn-primary">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <aside id="cart-panel" class="cart-panel" aria-label="Shopping cart" hidden>
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button type="button" id="cart-close" class="icon-btn" aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div id="cart-empty" class="empty-state" hidden>
+      <p>Your cart is empty. Browse the menu and add some dishes!</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">0.00 ETB</span>
+      </div>
+      <div class="cart-total-row">
+        <span>Delivery Fee</span>
+        <span id="cart-delivery-fee">0.00 ETB</span>
+      </div>
+      <div class="cart-total-row total">
+        <span>Total</span>
+        <span id="cart-total">0.00 ETB</span>
+      </div>
+      <button type="button" id="checkout-btn" class="btn btn-primary btn-block" disabled>Proceed to Checkout</button>
+    </div>
+  </aside>
+  <div id="cart-overlay" class="overlay" hidden></div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" hidden>
+    <div class="modal-backdrop" data-close-checkout></div>
+    <div class="modal-content checkout-form">
+      <button type="button" class="modal-close" data-close-checkout aria-label="Close checkout">&times;</button>
+      <h2 id="checkout-title">Checkout</h2>
+      <form id="checkout-form" novalidate>
+        <div class="form-group">
+          <label for="customer-name">Full Name</label>
+          <input type="text" id="customer-name" name="name" required autocomplete="name" placeholder="e.g. Abebe Kebede">
+          <span class="field-error" id="name-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="customer-phone">Phone Number</label>
+          <input type="tel" id="customer-phone" name="phone" required autocomplete="tel" placeholder="e.g. 0912345678">
+          <span class="field-error" id="phone-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="delivery-area">Delivery Area</label>
+          <select id="delivery-area" name="area" required>
+            <option value="">Select your area</option>
+            <option value="bole">Bole</option>
+            <option value="piassa">Piassa</option>
+            <option value="kazanchis">Kazanchis</option>
+            <option value="megenagna">Megenagna</option>
+            <option value="sarbet">Sarbet</option>
+            <option value="cmc">CMC</option>
+            <option value="other">Other</option>
+          </select>
+          <span class="field-error" id="area-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="special-instructions">Special Instructions (optional)</label>
+          <textarea id="special-instructions" name="instructions" rows="3" placeholder="Any notes for the kitchen or delivery..."></textarea>
+        </div>
+        <div class="checkout-summary">
+          <p id="estimated-delivery" class="estimated-delivery"></p>
+          <p class="checkout-total">Order Total: <strong id="checkout-total">0.00 ETB</strong></p>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Place Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Confirmation -->
+  <div id="confirmation-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="confirm-title" hidden>
+    <div class="modal-backdrop"></div>
+    <div class="modal-content confirmation">
+      <div class="confirmation-icon" aria-hidden="true">✓</div>
+      <h2 id="confirm-title">Order Confirmed!</h2>
+      <p id="confirm-message"></p>
+      <p id="confirm-delivery-time" class="estimated-delivery"></p>
+      <button type="button" id="confirm-close" class="btn btn-primary">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- Order History Modal -->
+  <div id="history-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="history-title" hidden>
+    <div class="modal-backdrop" data-close-history></div>
+    <div class="modal-content history-panel">
+      <button type="button" class="modal-close" data-close-history aria-label="Close order history">&times;</button>
+      <h2 id="history-title">Order History</h2>
+      <div id="history-list" class="history-list"></div>
+      <div id="history-empty" class="empty-state" hidden>
+        <p>You haven't placed any orders yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Favorites Modal -->
+  <div id="favorites-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="favorites-title" hidden>
+    <div class="modal-backdrop" data-close-favorites></div>
+    <div class="modal-content favorites-panel">
+      <button type="button" class="modal-close" data-close-favorites aria-label="Close favorites">&times;</button>
+      <h2 id="favorites-title">Your Favorites</h2>
+      <div id="favorites-list" class="favorites-list"></div>
+      <div id="favorites-empty" class="empty-state" hidden>
+        <p>No favorites yet. Tap the heart on any dish to save it.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    
+    
+    <div class="footer-col">
+      <h3>Addis Eats</h3>
+      <p>Delivering authentic Ethiopian dishes, pizza, burgers, and drinks straight to your doorstep in Addis Ababa.</p>
+      <ul class="footer-links">
+        <li><a href="#menu">Our Menu</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#faq">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-envelope"></i> getutesfaye919@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +251 959 146 526</p>
+      <p><i class="fas fa-location-dot"></i> Addis Ababa, Ethiopia</p>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://t.me" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    
+    <div class="footer-col">
+      <h3>Payment Methods</h3>
+      <p>We accept local payment options:</p>
+      <div class="payment-badges">
+        <span class="pay-badge telebirr">Telebirr</span>
+        <span class="pay-badge cbe">CBE Birr</span>
+        <span class="pay-badge cash">Cash on Delivery</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Addis Eats — Addis Ababa, Ethiopia. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

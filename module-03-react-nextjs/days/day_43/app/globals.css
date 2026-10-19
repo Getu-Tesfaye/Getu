@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+}
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+.nav-links a:hover {
+  color: yellow;
+}
+.dish-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.nav-links > div {
+  width: 400px;
+  flex-shrink: 0;
+  overflow: hidden;
+  
+}
+.dish-list img {
+  display: block;
+  border-radius: 12px;
+}
+
+  
