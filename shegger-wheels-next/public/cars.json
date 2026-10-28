@@ -1,0 +1,139 @@
+
+[
+  {
+    "id": 1,
+    "name": "City Explorer",
+    "price": "4.5M",
+    "dailyPrice": 2500,
+    "category": "Compact",
+    "description": "A practical car for everyday trips.",
+    "image": "/images/image23.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Adventure Seeker",
+    "price": "5.5M",
+    "dailyPrice": 2200,
+    "category": "SUV",
+    "description": "Extra space for your next adventure.",
+    "image": "/images/images6.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Executive Drive",
+    "price": "8.5M",
+    "dailyPrice": 2800,
+    "category": "Premium",
+    "description": "A refined choice for special occasions.",
+    "image": "/images/image16.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Family Comfort",
+    "price": "6M",
+    "dailyPrice": 2600,
+    "category": "SUV",
+    "description": "A spacious choice for family journeys.",
+    "image": "/images/images8.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Urban Mini",
+    "price": "9.5M",
+    "dailyPrice": 2500,
+    "category": "Compact",
+    "description": "Easy to drive around the city.",
+    "image": "/images/images9.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Luxury Cruiser",
+    "price": "22M",
+    "dailyPrice": 5000,
+    "category": "Premium",
+    "description": "Enjoy a comfortable premium ride.",
+    "image": "/images/images10.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Mountain Traveler",
+    "price": "8.5M",
+    "dailyPrice": 4500,
+    "category": "SUV",
+    "description": "Extra room for weekend adventures.",
+    "image": "/images/images17.jpg"
+  },
+  {
+    "id": 8,
+    "name": "City Runner",
+    "price": "7M",
+    "dailyPrice": 2000,
+    "category": "Compact",
+    "description": "A convenient option for daily travel.",
+    "image": "/images/images18.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Business Class",
+    "price": "9.5M",
+    "dailyPrice": 2500,
+    "category": "Premium",
+    "description": "A stylish option for business trips.",
+    "image": "/images/images19.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Weekend Explorer",
+    "price": "21M",
+    "dailyPrice": 15000,
+    "category": "SUV",
+    "description": "Bring what you need for a weekend away.",
+    "image": "/images/images11.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Smart Drive",
+    "price": "7.5M",
+    "dailyPrice": 3500,
+    "category": "Compact",
+    "description": "A simple choice for everyday errands.",
+    "image": "/images/images12.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Premium Journey",
+    "price": "12.5M",
+    "dailyPrice": 4500,
+    "category": "Premium",
+    "description": "Travel in comfort and style.",
+    "image": "/images/images13.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Road Trip SUV",
+    "price": "8.5M",
+    "dailyPrice": 2500,
+    "category": "SUV",
+    "description": "Room for passengers and travel bags.",
+    "image": "/images/images14.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Easy Commuter",
+    "price": "4.5M",
+    "dailyPrice": 2000,
+    "category": "Compact",
+    "description": "A practical ride for short journeys.",
+    "image": "/images/images15.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Signature Drive",
+    "price": "7.5M",
+    "dailyPrice": 3000,
+    "category": "Premium",
+    "description": "A refined ride for special occasions.",
+    "image": "/images/images16.jpg"
+  }
+
+]
