@@ -39,7 +39,7 @@ export default function AdminBookingsPage() {
         if (bookingError) {
             setError(
                 "Could not load bookings. Check your Supabase permissions: " +
-                    bookingError.message
+                bookingError.message
             );
             setBookings([]);
             setLoading(false);
@@ -165,8 +165,8 @@ export default function AdminBookingsPage() {
                 <div className="admin-bookings-empty">
                     <h2>No bookings found</h2>
                     <p>
-                        There are no bookings matching this filter, or your
-                        account cannot see any bookings.
+                        There are no bookings matching this filter.
+            
                     </p>
                 </div>
             ) : (
@@ -231,8 +231,8 @@ export default function AdminBookingsPage() {
                                         <td>
                                             {booking.created_at
                                                 ? new Date(
-                                                      booking.created_at
-                                                  ).toLocaleDateString()
+                                                    booking.created_at
+                                                ).toLocaleDateString()
                                                 : "—"}
                                         </td>
                                     </tr>
