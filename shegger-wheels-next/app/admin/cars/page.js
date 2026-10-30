@@ -13,7 +13,7 @@ export default function AdminCarsPage() {
   const [updatingId, setUpdatingId] = useState(null);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [filter, setFilter] = useState("pending");
+  const [filter, setFilter] = useState("all");
 
   const loadCars = useCallback(async () => {
     setLoading(true);

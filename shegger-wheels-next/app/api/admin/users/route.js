@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 export async function GET(request) {
     try {
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-        const anonKey = process.env.NEXT_PUBLIC_SUPABASE_publishable_KEY;
+        const anonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
         const secretKey = process.env.SUPABASE_SECRET_KEY;
 
         if (!supabaseUrl || !anonKey || !secretKey) {
