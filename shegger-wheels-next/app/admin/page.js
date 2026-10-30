@@ -5,14 +5,14 @@ export const dynamic = "force-dynamic";
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 import Link from "next/link";
 import { supabase } from "../../lib/supabase";
 import { downloadCsv } from "@/lib/csv";
 import { when, relative } from "@/lib/format";
 
 
-const DeliveryMap = dynamic(
+const DeliveryMap = nextDynamic(
   () => import("../track/[id]/DeliveryMap"),
   {
     ssr: false,
