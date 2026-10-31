@@ -1,9 +1,30 @@
+
 import Link from "next/link";
 
 const projects = [
   {
     number: "01",
     title: "Addis Eats",
+    type: "FULL-STACK WEB APPLICATION",
+    description:
+      "A food ordering web application with menu browsing, dish details, favorites, shopping cart, checkout, customer orders, and an admin dashboard. Integrated with Supabase for database and authentication.",
+    technologies: "Next.js • React • JavaScript • Supabase • CSS",
+    live: "https://addis-eats-next.vercel.app/",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "02",
+    title: "Sheggar Wheels",
+    type: "CAR RENTAL MARKETPLACE",
+    description:
+      "A car rental marketplace where users can explore vehicles, view car details, and submit booking requests. Includes authentication and separate experiences for renters, car owners, and administrators.",
+    technologies: "Next.js • React • JavaScript • Supabase • CSS",
+    live: "https://sheggar-wheels-next-project.vercel.app/",
+    github: "https://github.com/Getu-Tesfaye/Getu",
+  },
+  {
+    number: "03",
+    title: "Addis Eats React",
     type: "WEB APPLICATION",
     description:
       "A food ordering web application with menu browsing, dish details, favorites, shopping cart, checkout, orders, and an admin dashboard.",
@@ -12,7 +33,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "02",
+    number: "04",
     title: "Birr Watch",
     type: "WEB APPLICATION",
     description:
@@ -21,7 +42,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "03",
+    number: "05",
     title: "Simple Calculator",
     type: "PYTHON PROJECT",
     description:
@@ -30,7 +51,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "04",
+    number: "06",
     title: "Addis Bank Account System",
     type: "PYTHON PROJECT",
     description:
@@ -39,7 +60,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "05",
+    number: "07",
     title: "Pharmacy Inventory Tracker",
     type: "PYTHON PROJECT",
     description:
@@ -48,7 +69,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "06",
+    number: "08",
     title: "Ethio Telecom Website",
     type: "WEBSITE",
     description:
@@ -57,7 +78,7 @@ const projects = [
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
-    number: "07",
+    number: "09",
     title: "Optimizing Signal-to-Noise Ratio Using Adaptive Filters",
     type: "ENGINEERING PROJECT",
     description:
@@ -70,7 +91,6 @@ const projects = [
 export default function Projects() {
   return (
     <main className="projects-page">
-
       <section className="projects-hero">
         <p className="section-label">MY WORK</p>
 
@@ -87,16 +107,13 @@ export default function Projects() {
       </section>
 
       <section className="projects-list">
-
         {projects.map((project) => (
           <article className="project-card" key={project.number}>
-
             <div className="project-number">
               {project.number}
             </div>
 
             <div className="project-info">
-
               <p className="project-type">
                 {project.type}
               </p>
@@ -112,7 +129,6 @@ export default function Projects() {
               </p>
 
               <div className="project-links">
-
                 {project.live && (
                   <a
                     href={project.live}
@@ -130,18 +146,13 @@ export default function Projects() {
                 >
                   GitHub ↗
                 </a>
-
               </div>
-
             </div>
-
           </article>
         ))}
-
       </section>
 
       <section className="projects-cta">
-
         <p className="section-label">NEXT</p>
 
         <h2>Want to know more about me?</h2>
@@ -149,9 +160,7 @@ export default function Projects() {
         <Link href="/experience" className="primary-button">
           View My Experience →
         </Link>
-
       </section>
-
     </main>
   );
 }
