@@ -9,7 +9,7 @@ const projects = [
     description:
       "A food ordering web application with menu browsing, dish details, favorites, shopping cart, checkout, customer orders, and an admin dashboard. Integrated with Supabase for database and authentication.",
     technologies: "Next.js • React • JavaScript • Supabase • CSS",
-    live: "https://addis-eats-next.vercel.app/",
+    live: "https://addis-eat-next.vercel.app/",
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
   {
