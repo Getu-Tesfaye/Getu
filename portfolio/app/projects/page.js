@@ -46,7 +46,7 @@ const projects = [
     title: "Simple Calculator",
     type: "PYTHON PROJECT",
     description:
-      "A simple console-based calculator created to practice Python programming, user input, calculations, and basic program logic.",
+      "A simple console-based calculator created  Python programming, user input, calculations, and basic program logic.",
     technologies: "Python",
     github: "https://github.com/Getu-Tesfaye/Getu",
   },
