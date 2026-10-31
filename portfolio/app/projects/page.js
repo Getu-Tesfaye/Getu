@@ -4,7 +4,7 @@ import Link from "next/link";
 const projects = [
   {
     number: "01",
-    title: "Addis Eats",
+    title: "Addis Eats Next",
     type: "FULL-STACK WEB APPLICATION",
     description:
       "A food ordering web application with menu browsing, dish details, favorites, shopping cart, checkout, customer orders, and an admin dashboard. Integrated with Supabase for database and authentication.",
